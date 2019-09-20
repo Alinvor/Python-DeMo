@@ -1,17 +1,31 @@
+# -*- coding: utf-8 -*-
+
+import os
 from openpyxl import Workbook
-from openpyxl.compat import range
-from openpyxl.cell import get_column_letter
+# from openpyxl.utils import get_column_letter
+
+fileName = 'test.xlsx'
+outputFile = os.path.join('out', fileName)
+if os.path.exists(outputFile):
+    os.remove(outputFile)
+
 wb = Workbook()
-dest_filename = 'empty_book2.xlsx'
-ws1 = wb.active  # 第一个表
-ws1.title = "range names"  # 第一个表命名
-# 遍历第一个表的1到40行，赋值一个600内的随机数
-for row in range(1, 40):
-    ws1.append(range(60))
-ws2 = wb.create_sheet(title="Pi")
-ws2['F5'] = 3.14
-ws3 = wb.create_sheet(title="Data")
-for row in range(10, 20):
-    for col in range(27, 54):
-        _ = ws3.cell(column=col, row=row, value="%s" % get_column_letter(col))
-wb.save(filename=dest_filename)
+wsOfDefault = wb.active
+wsOfDefault.title = "测试"
+
+# wsOfTest = wb.create_sheet('test', 1)
+# wsOfTest.title = 'test'
+
+for row in range(1, 10):
+    wsOfDefault.append(range(10))
+
+# ws2 = wb.create_sheet(title="Pi")
+# ws2['F5'] = 3.14
+
+# ws3 = wb.create_sheet(title="字母")
+# for row in range(10, 20):
+#     for col in range(17, 24):
+#         # _ = ws3.cell(column=col, row=row, value="%s" % get_column_letter(col))
+#         ws3.cell(column=col, row=row, value="%s" % get_column_letter(col))
+
+wb.save(filename=outputFile)
