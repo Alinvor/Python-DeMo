@@ -1,0 +1,17 @@
+
+# vscode files
+.vscode/settings.json
+
+# Generated files
+bin/
+gen/
+out/
+mock/
+venv/
+**/.DS_Store
+
+# Local configuration file
+local.properties
+
+# Log Files
+*.log
