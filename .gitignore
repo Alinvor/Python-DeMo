@@ -8,6 +8,7 @@ gen/
 out/
 mock/
 venv/
+venv2/
 **/.DS_Store
 
 # Local configuration file
