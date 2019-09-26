@@ -2,6 +2,9 @@
 # vscode files
 .vscode/settings.json
 
+# IDEA files
+.idea/
+
 # Generated files
 bin/
 gen/
