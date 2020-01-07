@@ -10,12 +10,18 @@ class Test_XXX(unittest.TestCase):
         print("...the set up...")
         print
 
+    def setUp(self):
+        return super(Test_XXX, self).setUp()
+
     def test_xxx(self):
         print "the test xxx is succeed."
         pass
 
+    def tearDown(self):
+        return super(Test_XXX, self).tearDown()
+
     @classmethod
-    def tearDown(cls):
+    def tearDownClass(cls):
         print
         print("...the tear down...")
 
