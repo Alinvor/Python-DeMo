@@ -17,6 +17,11 @@ def test_os_path():
     print('the current dir name is %s' % dirName)
     exists = os.path.exists(cwd)
     print('the current directory or file is exists that is %s ' % exists)
+    userProfile = os.path.expanduser("~")
+    print('the current user profile that is %s ' % userProfile)
+    supportUnicodeFileNames = os.path.supports_unicode_filenames
+    print('the current weather support unicode file names that is %s ' %
+          supportUnicodeFileNames)
 
 
 if __name__ == "__main__":
