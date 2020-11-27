@@ -42,6 +42,13 @@
         "**/.DS_Store": true,
         "**/*.pyc": true
     },
+    "python.analysis.extraPaths": [
+        "./src",
+        "./mock",
+        "./test",
+        "./venv2/bin",
+        "./venv2/Lib/python2.7/site-packages"
+    ],
     "python.analysis.logLevel": "Trace",
     "python.analysis.watchSearchPaths": true,
     "python.autoComplete.extraPaths": [
@@ -56,6 +63,7 @@
     "python.pythonPath": "venv2/bin/python",
     "python.formatting.provider": "yapf",
     "python.languageServer": "Microsoft",
+    // "python.languageServer": "Pylance",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": ["--max-line-length=250"],
