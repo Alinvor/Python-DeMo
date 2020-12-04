@@ -10,6 +10,7 @@ Python DeMo
   - [1.2 venv3](#12-venv3)
     - [1.2.1 venv3 for mac](#121-venv3-for-mac)
     - [1.2.2 venv3 for windows](#122-venv3-for-windows)
+- [二. 多模块配置](#二-多模块配置)
 
 ## 一. 构建`venv`环境
 
@@ -47,4 +48,23 @@ python3 -m virtualenv -p C:\Python\Python38\python3.exe venv
 或
 
 python3 -m virtualenv -p C:\Python\Python38\python3.exe venv > venv.log
+```
+
+## 二. 多模块配置
+
+具体步骤:
+
+1. 在`venv2`和`venv` 下新建一个`python.pth`文件，具体目录为`venv2/lib/python2.x/site-packages/python.pth`和`venv/lib/python3.x/site-packages/python.pth`;
+2. 在上述`python.pth`文件中写入多模块的`绝对路径`(自己设备上实际目录);
+
+```python
+# venv2 环境
+# /Users/.../Python-DeMo/venv2/lib/python2.x/site-packages/python.pth
+#
+# venv 环境
+# /Users/.../Python-DeMo/venv/lib/python3.x/site-packages/python.pth
+
+/Users/.../Python-DeMo/src
+/Users/.../Python-DeMo/test
+/Users/.../Python-DeMo/mock
 ```
