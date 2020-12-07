@@ -1,5 +1,7 @@
+# -*- coding:utf-8 -*-
+
 import os
-import logging
+# import logging
 import time
 
 
@@ -40,5 +42,5 @@ def mk_children_dir(output_dir_name, sub_dir_name):
     children_dir = os.path.join(output_dir_name, sub_dir_name)
     if not os.path.exists(children_dir):
         os.makedirs(children_dir)
-    logging.debug('the current children_dir is %s' % children_dir)
+    # logging.debug('the current children_dir is %s' % children_dir)
     return children_dir
