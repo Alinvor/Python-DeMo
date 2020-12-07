@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import unittest
-from conf.common_conf import logging_conf
+from com.dvsnier.conf.common_conf import logging_conf
 
 
 class Test_Common_Conf(unittest.TestCase):

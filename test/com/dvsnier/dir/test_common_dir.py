@@ -2,7 +2,7 @@
 
 import unittest
 
-from dir.common_dir import generate_complex_file_name, generate_file_name, mk_children_dir, mk_output_dir
+from com.dvsnier.dir.common_dir import generate_complex_file_name, generate_file_name, mk_children_dir, mk_output_dir
 
 
 class Test_Common_Dir(unittest.TestCase):

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import unittest
-from http.https import Request
+from com.dvsnier.http.https import Request
 
 
 def test_two():

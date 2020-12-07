@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import logging
-from dir.common_dir import generate_complex_file_name
+from com.dvsnier.dir.common_dir import generate_complex_file_name
 
 
 def logging_conf(kwargs):

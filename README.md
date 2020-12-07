@@ -67,4 +67,5 @@ python3 -m virtualenv -p C:\Python\Python38\python3.exe venv > venv.log
 /Users/.../Python-DeMo/src
 /Users/.../Python-DeMo/test
 /Users/.../Python-DeMo/mock
+/Users/.../Python-DeMo/case
 ```

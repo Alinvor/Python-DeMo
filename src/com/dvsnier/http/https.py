@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from conf.common_conf import logging_conf
+from com.dvsnier.conf.common_conf import logging_conf
 import urllib2
 import logging
 
