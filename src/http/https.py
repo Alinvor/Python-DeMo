@@ -12,12 +12,14 @@ class Request(object):
 
     # def __init__(self):
     #     super(Request, self).__init__()
-    #     logging_conf()
+    #     kwargs = {'output_dir_name': 'request', 'file_name': 'request'}
+    #     logging_conf(kwargs)
 
     def __init__(self, *url):
         super(Request, self).__init__()
         self._url = url
-        logging_conf()
+        kwargs = {'output_dir_name': 'request', 'file_name': 'request'}
+        logging_conf(kwargs)
 
     def requests(self, *req_url):
         'the request address'
