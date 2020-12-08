@@ -4,12 +4,15 @@
 import urllib2
 import os
 # import shutil
+import logging
+import time
 
 
 def requests():
 
     req_url = 'http://www.baidu.com/'
-    print(req_url)
+    # print(req_url)
+    logging.info('this request url is %s' % req_url)
     response = urllib2.urlopen(req_url)
     headers = response.headers
 
@@ -44,12 +47,22 @@ def requests():
     if any(headers):
         header_of_log = os.path.join(req_dir, 'response.header.log')
         file = open(header_of_log, 'w')
-        file.write(str(headers.dict))
+        value = str(headers.dict)
+        logging.debug('this request headers is %s' % value)
+        file.write(value)
         file.close()
 
     body_of_log = os.path.join('out/request', 'response.body.log')
     file = open(body_of_log, 'w')
-    file.write(str(response.read()))
+    response_to_string = str(response.read())
+    # logging.debug('this is response is %s' % response_to_string)
+    #
+    # logging.debug('this is debug message.')
+    # logging.info('this is info message.')
+    # logging.warning('this is warning message.')
+    # logging.error('this is error message.')
+    # logging.critical('this is critical message.')
+    file.write(response_to_string)
     file.close()
 
 
@@ -62,5 +75,23 @@ def removeTree(dir):
             os.rmdir(os.path.join(root, name))
 
 
+def generateFileName():
+    'the generate out file name'
+    project_dir = os.path.abspath('.')
+    out_dir = os.path.join(project_dir, 'out')
+    http_dir = os.path.join(out_dir, 'http')
+    if not os.path.exists(http_dir):
+        os.makedirs(http_dir)
+    file_name = 'http_%s.log' % int(time.time())
+    return os.path.join(http_dir, file_name)
+
+
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename=generateFileName(),
+        filemode='a',
+        format='[%(asctime)s][%(levelname)8s] --- %(message)s',
+        # format=
+        # '[%(asctime)s][%(levelname)8s][%(filename)s:%(lineno)s] --- %(message)s',
+        level=logging.DEBUG)
     requests()
