@@ -3,12 +3,21 @@
 import os
 # import logging
 import time
+import datetime
 
 
 def generate_complex_file_name(output_dir_name, file_name):
     'the generate complex file name'
     output_dir = mk_output_dir(output_dir_name)
     name = str("%s_%s.log" % (file_name, int(time.time())))
+    return os.path.join(output_dir, name)
+
+
+def generate_fmt_file_name(output_dir_name, file_name, fmt='%Y%m%d_%H%M%S'):
+    'the generate out with fmt file name'
+    output_dir = mk_output_dir(output_dir_name)
+    name = str("%s_%s.txt" %
+               (file_name, datetime.datetime.now().strftime(fmt)))
     return os.path.join(output_dir, name)
 
 
