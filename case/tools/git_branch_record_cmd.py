@@ -49,6 +49,20 @@ def branch_to_file_and_commit_list():
     ])
 
 
+def branch_to_file_and_commit_list_with_more():
+    '''the execute origin branch more commit record list that to files
+
+        format one:
+            git branch --list --all --sort=committerdate --format=\'%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:red)%(objectname:short)%(color:reset)|%(color:reset)%(contents:subject)|%(authorname)|%(color:reset)(%(color:green)%(committerdate:relative)%(color:reset))\'
+
+        format two:
+            git branch --list --all --sort=committerdate --format=\'%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:red)%(objectname:short)%(color:reset)|%(color:reset)(%(color:green)%(committerdate:relative)%(color:reset))\'
+    '''
+    return execute([
+        'git branch --list --all --sort=committerdate --format=\'%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:red)%(objectname:short)%(color:reset)|%(color:reset)(%(color:green)%(committerdate:relative)%(color:reset))\''
+    ])
+
+
 if __name__ == "__main__":
     '''Git 分支记录脚本'''
     # /Users/.../Python-DeMo
@@ -77,6 +91,7 @@ if __name__ == "__main__":
         branch_status=ff_result))
     branch_prune()
     value = branch_to_file_and_commit_list()
+    # value = branch_to_file_and_commit_list_with_more()
     os.chdir(engineering_dir)
     with open(generate_fmt_file_name('resource', 'resource'), 'w+') as file:
         file.write(value)
