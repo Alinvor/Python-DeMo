@@ -27,6 +27,26 @@ def generate_file_name(output_dir_name, file_name):
     return os.path.join(output_dir, file_name)
 
 
+def generate_complex_or_fmt_file_name(output_dir_name,
+                                      file_name,
+                                      fmt='%Y%m%d_%H%M%S'):
+    'the generate out complex or fmt file name'
+    output_dir = mk_output_dir(output_dir_name)
+    if file_name is None or len(file_name.strip()) == 0:
+        raise ValueError('the file name is invaild.')
+    file_name = file_name.strip()
+    if '.' in file_name:
+        rdot_index = file_name.rfind('.')
+        if rdot_index > 0:
+            file_name = str("%s_%s%s" % (file_name[0:rdot_index],
+                                         datetime.datetime.now().strftime(fmt),
+                                         file_name[rdot_index:]))
+    else:
+        file_name = str("%s_%s" %
+                        (file_name, datetime.datetime.now().strftime(fmt)))
+    return os.path.join(output_dir, file_name)
+
+
 def mk_output_dir(output_dir_name):
     'the initialize output dir'
     # root_dir = os.path.dirname(os.path.abspath('.'))
