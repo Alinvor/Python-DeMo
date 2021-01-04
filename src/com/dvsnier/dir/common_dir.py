@@ -47,6 +47,15 @@ def generate_complex_or_fmt_file_name(output_dir_name,
     return os.path.join(output_dir, file_name)
 
 
+def mk_dir(output_dir_name):
+    'the initialize global output dir'
+    project_dir = os.path.abspath('.')
+    output_dir = os.path.join(project_dir, output_dir_name)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    return output_dir
+
+
 def mk_output_dir(output_dir_name):
     'the initialize output dir'
     # root_dir = os.path.dirname(os.path.abspath('.'))

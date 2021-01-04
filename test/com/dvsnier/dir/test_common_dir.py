@@ -2,7 +2,7 @@
 
 import unittest
 
-from com.dvsnier.dir.common_dir import generate_complex_file_name, generate_complex_or_fmt_file_name, generate_file_name, generate_fmt_file_name, mk_children_dir, mk_output_dir
+from com.dvsnier.dir.common_dir import generate_complex_file_name, generate_complex_or_fmt_file_name, generate_file_name, generate_fmt_file_name, mk_children_dir, mk_dir, mk_output_dir
 
 
 class Test_Common_Dir(unittest.TestCase):
@@ -62,6 +62,13 @@ class Test_Common_Dir(unittest.TestCase):
             % output)
         self.assertIsNotNone(
             output, 'test_generate_complex_or_fmt_file_name is error.')
+
+    def test_mk_dir(self):
+        'the test mk dir'
+        dir_name = 'config'
+        output = mk_dir(dir_name)
+        print("\nthe test test_mk_dir(%s) is succeed." % output)
+        self.assertIsNotNone(output, 'test_mk_dir is error.')
 
     def test_mk_output_dir(self):
         'the test mk output dir'
