@@ -2,7 +2,7 @@
 
 import unittest
 
-from com.dvsnier.dir.common_dir import generate_complex_file_name, generate_complex_or_fmt_file_name, generate_file_name, generate_fmt_file_name, mk_children_dir, mk_dir, mk_output_dir
+from com.dvsnier.dir.common_dir import generate_complex_file_name, generate_complex_or_fmt_file_name, generate_file_name, generate_file_name_only, generate_fmt_file_name, mk_children_dir, mk_dir, mk_output_dir
 
 
 class Test_Common_Dir(unittest.TestCase):
@@ -41,6 +41,15 @@ class Test_Common_Dir(unittest.TestCase):
         output = generate_file_name(dir_name, file_name)
         print("\nthe test test_generate_file_name(%s) is succeed." % output)
         self.assertIsNotNone(output, 'test_generate_file_name is error.')
+
+    def test_generate_file_name_only(self):
+        'the test generate file name only'
+        dir_name = 'https_2'
+        file_name = 'test_name'
+        output = generate_file_name_only(dir_name, file_name)
+        print("\nthe test test_generate_file_name_only(%s) is succeed." %
+              output)
+        self.assertIsNotNone(output, 'test_generate_file_name_only is error.')
 
     def test_generate_complex_or_fmt_file_name(self):
         'the test generate complex or fmt file name'

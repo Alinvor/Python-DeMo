@@ -27,6 +27,12 @@ def generate_file_name(output_dir_name, file_name):
     return os.path.join(output_dir, file_name)
 
 
+def generate_file_name_only(output_dir_name, file_name):
+    'the generate file name only'
+    output_dir = mk_dir(output_dir_name)
+    return os.path.join(output_dir, file_name)
+
+
 def generate_complex_or_fmt_file_name(output_dir_name,
                                       file_name,
                                       fmt='%Y%m%d_%H%M%S'):
