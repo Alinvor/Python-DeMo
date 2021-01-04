@@ -119,6 +119,7 @@ out/
 mock/
 venv/
 venv2/
+conf/
 **/.DS_Store
 
 # Local configuration file
