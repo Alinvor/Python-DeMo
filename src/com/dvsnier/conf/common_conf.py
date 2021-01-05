@@ -113,3 +113,12 @@ class Conf(object):
         # if value is None or value == '' or len(value) == 0:
         #     raise KeyError('the value is invalid.')
         self._config.set(section, option, value)
+
+    def debug(self):
+        'the debug config information'
+        for section_element in self._config.sections():
+            options = self._config.options(section_element)
+            for option_element in options:
+                print('option: %s, key: %s, value: %s' %
+                      (section_element, option_element,
+                       self._config.get(section_element, option_element)))
