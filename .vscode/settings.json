@@ -8,7 +8,7 @@
     "editor.formatOnType": true,
     "editor.wordWrapColumn": 250,
     "editor.columnSelection": false,
-    "editor.mouseWheelZoom": true,
+    "editor.mouseWheelZoom": false,
     "explorer.confirmDelete": false,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
