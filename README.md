@@ -15,9 +15,11 @@ Python DeMo
       - [1.2.1.2 venv3 20.4.6](#1212-venv3-2046)
     - [1.2.2 venv3 for windows](#122-venv3-for-windows)
 - [二. 多模块配置](#二-多模块配置)
-- [三. venvX activate](#三-venvx-activate)
-  - [3.1 activate for mac](#31-activate-for-mac)
-  - [3.2 activate for windows](#32-activate-for-windows)
+- [三. venvX activate and deactivate](#三-venvx-activate-and-deactivate)
+  - [3.1 venvX activate](#31-venvx-activate)
+    - [3.1.1 activate for mac](#311-activate-for-mac)
+    - [3.1.2 activate for windows](#312-activate-for-windows)
+  - [3.2 venvX deactivate](#32-venvx-deactivate)
 
 ## 一. 构建`venv`环境
 
@@ -124,9 +126,11 @@ python3 -m virtualenv -p C:\Python\Python38\python3.exe venv > venv.log
 /Users/.../Python-DeMo/case
 ```
 
-## 三. venvX activate
+## 三. venvX activate and deactivate
 
-### 3.1 activate for mac
+### 3.1 venvX activate
+
+#### 3.1.1 activate for mac
 
 在控制台中输入如下命令，使得Mac 环境下的 `virtualenv` 生效:
 
@@ -139,15 +143,25 @@ source ./venv2/bin/activate
 source ./venv/bin/activate
 ```
 
-### 3.2 activate for windows
+#### 3.1.2 activate for windows
 
 在控制台中输入如下命令，使得Windows 环境下的 `virtualenv` 生效:
 
 ```bash
 # python2
-source ./venv2/Scripts/activate
+./venv2/Scripts/activate
 
 
 # python3
-source ./venv/Scripts/activate
+./venv/Scripts/activate
 ```
+
+### 3.2 venvX deactivate
+
+如果要切换项目或以其他方式离开虚拟环境,只需运行:
+
+```bash
+deactivate
+```
+
+如果要重新进入虚拟环境，请按照上述有关激活虚拟环境的相同说明进行操作,无需重新创建虚拟环境;
