@@ -44,7 +44,7 @@ class Test_Common_Dir(unittest.TestCase):
 
     def test_generate_file_name_only(self):
         'the test generate file name only'
-        dir_name = 'https_2'
+        dir_name = 'out/https_2'
         file_name = 'test_name'
         output = generate_file_name_only(dir_name, file_name)
         print("\nthe test test_generate_file_name_only(%s) is succeed." %
