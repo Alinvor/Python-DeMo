@@ -1,4 +1,3 @@
-
 # Python-DeMo
 
 Python DeMo
@@ -19,7 +18,17 @@ Python DeMo
   - [3.1 venvX activate](#31-venvx-activate)
     - [3.1.1 activate for mac](#311-activate-for-mac)
     - [3.1.2 activate for windows](#312-activate-for-windows)
-  - [3.2 venvX deactivate](#32-venvx-deactivate)
+- [四. 脚本](#四-脚本)
+  - [4.1 python version](#41-python-version)
+  - [4.2 pip setuptools wheel version](#42-pip-setuptools-wheel-version)
+    - [4.2.1 pip freeze list](#421-pip-freeze-list)
+    - [4.2.2 setuptools](#422-setuptools)
+      - [4.2.2.1 setup.cfg](#4221-setupcfg)
+      - [4.2.2.2 setup.py](#4222-setuppy)
+  - [4.3 virtualenv version](#43-virtualenv-version)
+  - [4.4 tox tox-travis version](#44-tox-tox-travis-version)
+  - [4.5 twine version](#45-twine-version)
+- [五. 参考](#五-参考)
 
 ## 一. 构建`venv`环境
 
@@ -156,12 +165,106 @@ source ./venv/bin/activate
 ./venv/Scripts/activate
 ```
 
-### 3.2 venvX deactivate
+## 四. 脚本
 
-如果要切换项目或以其他方式离开虚拟环境,只需运行:
+### 4.1 python version
 
 ```bash
-deactivate
+# python
+python2 --version
+# python help
+python2 --help > ./Temp/help/python_help.txt
 ```
 
-如果要重新进入虚拟环境，请按照上述有关激活虚拟环境的相同说明进行操作,无需重新创建虚拟环境;
+### 4.2 pip setuptools wheel version
+
+```bash
+# pip
+python2 -m pip --version
+
+# pip setuptools wheel help
+python2 -m pip --help > ./Temp/help/python_pip_help.txt
+## python2 -m setuptools --help > ./Temp/help/python_setuptools_help.txt
+python2 -m setup.py --help-commands > ./Temp/help/python_setuptools_help.txt
+python2 -m wheel --help > ./Temp/help/python_wheel_help.txt
+```
+
+#### 4.2.1 pip freeze list
+
+```bash
+# pip freeze
+python2 -m pip freeze > ./Temp/python_pip_freeze.txt
+python2 -m pip list > ./Temp/python_pip_list.txt
+```
+
+#### 4.2.2 setuptools
+
+##### 4.2.2.1 setup.cfg
+
+```bash
+# python2 build
+python2 -m pip install build
+python2 -m pip install --upgrade build
+python2 -m build
+python2 -m build > ./out/dist/build.txt
+
+# python3 build
+python3 -m pip install build
+python3 -m pip install --upgrade build
+python3 -m build
+python3 -m build > ./out/dist/build.txt
+```
+
+##### 4.2.2.2 setup.py
+
+```bash
+# setup sdist
+python2 setup.py sdist > ./out/dist/setup_sdist.txt
+python3 setup.py sdist > ./out/dist/setup_sdist.txt
+
+python2 setup.py bdist_wheel --universal
+python3 setup.py bdist_wheel --universal
+
+python2 setup.py bdist_wheel
+python3 setup.py bdist_wheel
+```
+
+### 4.3 virtualenv version
+
+```bash
+# virtualenv
+python2 -m virtualenv --version
+# virtualenv help
+python2 -m virtualenv --help > ./Temp/help/python_virtualenv_help.txt
+```
+
+### 4.4 tox tox-travis version
+
+```bash
+# tox
+python2 -m tox --version
+# python2 -m tox-travis --version
+# tox tox-travis help
+python2 -m tox --help > ./Temp/help/python_tox_help.txt
+# python2 -m tox-travis --help > ./Temp/help/python_tox_travis_help.txt
+```
+
+### 4.5 twine version
+
+```bash
+# twine
+python2 -m twine --version
+# twine help
+python2 -m twine --help > ./Temp/help/python_twine_help.txt
+
+# check python check and upload dist format
+twine check dist/*
+twine upload dist/*
+```
+
+## 五. 参考
+
+1. https://packaging.python.org/tutorials/packaging-projects/
+2. https://packaging.python.org/guides/distributing-packages-using-setuptools/
+3. https://pypi.org/pypi?%3Aaction=list_classifiers
+4. https://docs.python.org/2/distutils/setupscript.html#additional-meta-data
