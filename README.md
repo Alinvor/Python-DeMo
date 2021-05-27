@@ -249,6 +249,18 @@ python2 -m tox --help > ./Temp/help/python_tox_help.txt
 # python2 -m tox-travis --help > ./Temp/help/python_tox_travis_help.txt
 ```
 
+如若快捷生成脚本,参考如下命令:
+
+```bash
+tox-quickstart
+```
+
+默认运行命令，如下:
+
+```bash
+tox
+```
+
 ### 4.5 twine version
 
 ```bash
