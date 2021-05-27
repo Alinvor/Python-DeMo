@@ -1,6 +1,6 @@
 # Python-DeMo
 
-Python DeMo
+![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Python DeMo")
 
 - [一. 构建`venv`环境](#一-构建venv环境)
   - [1.1 venv2](#11-venv2)
@@ -247,6 +247,18 @@ python2 -m tox --version
 # tox tox-travis help
 python2 -m tox --help > ./Temp/help/python_tox_help.txt
 # python2 -m tox-travis --help > ./Temp/help/python_tox_travis_help.txt
+```
+
+如若快捷生成脚本,参考如下命令:
+
+```bash
+tox-quickstart
+```
+
+默认运行命令，如下:
+
+```bash
+tox
 ```
 
 ### 4.5 twine version
