@@ -1,6 +1,6 @@
 # Python-DeMo
 
-Python DeMo
+![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Python DeMo")
 
 - [一. 构建`venv`环境](#一-构建venv环境)
   - [1.1 venv2](#11-venv2)
