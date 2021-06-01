@@ -98,11 +98,11 @@ DVSNIER_PACKAGES = find_packages(where='src')  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-    'discover==0.4.0',
-    'build==0.4.0',
-    'pathlib2==2.3.5',
-    'toml==0.10.2',
-    'twine==1.15.0',
+    # 'discover==0.4.0',
+    # 'build==0.4.0',
+    # 'pathlib2==2.3.5',
+    # 'toml==0.10.2',
+    # 'twine==1.15.0',
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
