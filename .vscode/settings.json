@@ -57,7 +57,7 @@
     "python.autoComplete.extraPaths": [
         "./src",
         "./mock",
-        "./test",
+        "./tests",
         "./venv2/bin",
         "./venv2/Lib/python2.7/site-packages",
         // "./venv/bin",
@@ -84,7 +84,7 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./test",
+        "./tests",
         "-p",
         "test_*.py"
     ],
