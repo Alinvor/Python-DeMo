@@ -12,9 +12,7 @@ def read_file(file_name):
             if len(line.strip()) > 0:
                 index += 1
                 md_line_text = line.strip().split('[')
-                line_text = str(
-                    str(index) + '. [' + md_line_text[1] +
-                    md_line_text[0]).encode('utf-8')
+                line_text = str(str(index) + '. [' + md_line_text[1] + md_line_text[0]).encode('utf-8')
                 content.append(line_text)
                 # print(line_text)
         dir_name = os.path.dirname(file_name)
@@ -22,7 +20,8 @@ def read_file(file_name):
         if len(content) > 0:
             with open(dest_name, 'w') as file:
                 for item in content:
-                    file.write(str(item).encode('utf-8') + '\n')
+                    # file.write(str(item).encode('utf-8') + '\n')
+                    file.write(str(item, 'utf-8') + '\n')
 
 
 if __name__ == "__main__":
