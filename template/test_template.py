@@ -14,7 +14,7 @@ class Test_XXX(unittest.TestCase):
         return super(Test_XXX, self).setUp()
 
     def test_xxx(self):
-        print "the test xxx is succeed."
+        print ("the test xxx(test_template.py) is succeed.")
         pass
 
     def tearDown(self):
