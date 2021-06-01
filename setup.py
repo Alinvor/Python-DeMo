@@ -9,6 +9,8 @@ https://github.com/Alinvor/Python-DeMo
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
 import os
+import sys
+
 
 def read_text(file_name):
     ''' the read describe readme files content. '''
@@ -16,7 +18,10 @@ def read_text(file_name):
     with open(file_name, 'r') as file:
         lines = file.readlines()
         for line in lines:
-            content += str(line).encode('utf-8')
+            if sys.version_info.major > 2:
+                content += str(line)
+            else:
+                content += str(line).encode('utf-8')
     # print(content)
     return content
 
@@ -58,7 +63,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.directory'  # Required
-DVSNIER_VERSION = '0.0.1.dev1'  # Required
+DVSNIER_VERSION = '0.0.1.dev2'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier directory.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
