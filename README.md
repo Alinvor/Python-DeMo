@@ -22,9 +22,10 @@
   - [4.1 python version](#41-python-version)
   - [4.2 pip setuptools wheel version](#42-pip-setuptools-wheel-version)
     - [4.2.1 pip freeze list](#421-pip-freeze-list)
-    - [4.2.2 setuptools](#422-setuptools)
-      - [4.2.2.1 setup.cfg](#4221-setupcfg)
-      - [4.2.2.2 setup.py](#4222-setuppy)
+    - [4.2.2 pip cache](#422-pip-cache)
+    - [4.2.3 setuptools](#423-setuptools)
+      - [4.2.3.1 setup.cfg](#4231-setupcfg)
+      - [4.2.3.2 setup.py](#4232-setuppy)
   - [4.3 virtualenv version](#43-virtualenv-version)
   - [4.4 tox tox-travis version](#44-tox-tox-travis-version)
   - [4.5 twine version](#45-twine-version)
@@ -213,9 +214,23 @@ python2 -m pip freeze > ./Temp/python_pip_freeze.txt
 python2 -m pip list > ./Temp/python_pip_list.txt
 ```
 
-#### 4.2.2 setuptools
+#### 4.2.2 pip cache
 
-##### 4.2.2.1 setup.cfg
+```bash
+# pip cache list
+python2 -m pip cache list > ./out/dist/pip_cache_list.txt
+python3 -m pip cache list > ./out/dist/pip_cache_list.txt
+# pip no cache install
+python2 -m pip --no-cache-dir install com.dvsnier.*
+python3 -m pip --no-cache-dir install com.dvsnier.*
+# pip remove cache package with whl
+python2 -m pip cache remove com.dvsnier.*
+python3 -m pip cache remove com.dvsnier.*
+```
+
+#### 4.2.3 setuptools
+
+##### 4.2.3.1 setup.cfg
 
 ```bash
 # python2 build
@@ -231,7 +246,7 @@ python3 -m build
 python3 -m build > ./out/dist/build.txt
 ```
 
-##### 4.2.2.2 setup.py
+##### 4.2.3.2 setup.py
 
 ```bash
 # setup sdist
