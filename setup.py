@@ -62,7 +62,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  20   |         DVSNIER_ENTRY_POINTS          |    dict     |       | 入口点                 |      |
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
-DVSNIER_NAME = 'com.dvsnier.dir'  # Required
+DVSNIER_NAME = 'com.dvsnier.directory'  # Required
 DVSNIER_VERSION = '0.0.1.dev2'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier directory.'  # Optional
 # Get the long description from the README file
