@@ -69,9 +69,9 @@
     "python.formatting.yapfArgs": [
         "--style", "{based_on_style: pep8 ,indent_width: 4, column_limit: 130}",
     ],
-    "python.languageServer": "Jedi",
+    // "python.languageServer": "Jedi",
+    "python.languageServer": "Pylance",
     // "python.languageServer": "Microsoft",
-    // "python.languageServer": "Pylance",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
