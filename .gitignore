@@ -107,6 +107,7 @@ venv.bak/
 
 
 # vscode files
+.vscode/
 .vscode/settings.json
 
 # IDEA files
@@ -128,3 +129,5 @@ local.properties
 # Log Files
 *.log
 
+# Temp Files
+Temp/
