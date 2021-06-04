@@ -31,7 +31,7 @@ class Test_Common_Conf(unittest.TestCase):
         # kwargs = {'output_dir_name': ' ', 'file_name': 'request'}
         kwargs = {'output_dir_name': 'request', 'file_name': 'request'}
         logging_conf(kwargs)
-        print "the test test_logging_conf is succeed."
+        print("the test test_logging_conf is succeed.")
 
     def test_conf(self):
         'the test conf'
@@ -42,7 +42,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.set('test_conf_write', 'test1', 'test1')
         self._Conf.set('test_conf_write', 'test2', 'test2')
         self._Conf.write(self.file_name)
-        print "the test test_conf_1_write is succeed."
+        print("the test test_conf_1_write is succeed.")
         # self.debug()
 
     def test_conf_2_read(self):
@@ -50,7 +50,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.read(self.file_name)
         self.assertIsNotNone(self._Conf.sections(),
                              'test_conf_2_read is error.')
-        print "the test test_conf_2_read is succeed."
+        print("the test test_conf_2_read is succeed.")
         # self.debug()
 
     def test_conf_3_add_section(self):
@@ -64,7 +64,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.write(self.file_name)
         self.assertIsNotNone(self._Conf.sections(),
                              'test_conf_3_add_section is error.')
-        print "the test test_conf_3_add_section is succeed."
+        print("the test test_conf_3_add_section is succeed.")
         # self.debug()
 
     def test_conf_4_remove_section(self):
@@ -74,7 +74,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.write(self.file_name)
         self.assertIsNotNone(self._Conf.sections(),
                              'test_conf_4_remove_section is error.')
-        print "the test test_conf_4_remove_section is succeed."
+        print("the test test_conf_4_remove_section is succeed.")
         # self.debug()
 
     def test_conf_5_sections(self):
@@ -84,7 +84,7 @@ class Test_Common_Conf(unittest.TestCase):
         # self._Conf.set('test_conf_write', 'test2', 'test2')
         self.assertIsNotNone(self._Conf.sections(),
                              'test_conf_5_sections is error.')
-        print "the test test_conf_5_sections is succeed."
+        print("the test test_conf_5_sections is succeed.")
         # self.debug()
 
     def test_conf_6_options(self):
@@ -93,7 +93,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.set('test_conf_add_section', 'test1', 'test1')
         self.assertIsNotNone(self._Conf.options('test_conf_add_section'),
                              'test_conf_6_options is error.')
-        print "the test test_conf_6_options is succeed."
+        print("the test test_conf_6_options is succeed.")
         # self.debug()
 
     def test_conf_7_get(self):
@@ -102,7 +102,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.set('test_conf_get', 'test1', 'test1')
         self.assertIsNotNone(self._Conf.get('test_conf_get', 'test1'),
                              'test_conf_7_get is error.')
-        print "the test test_conf_7_get is succeed."
+        print("the test test_conf_7_get is succeed.")
         # self.debug()
 
     def test_conf_8_getboolean(self):
@@ -133,7 +133,7 @@ class Test_Common_Conf(unittest.TestCase):
         self.assertIsNotNone(
             self._Conf.getboolean('test_conf_getboolean', 'test1'),
             'test_conf_8_getboolean is error.')
-        print "the test test_conf_8_getboolean is succeed."
+        print("the test test_conf_8_getboolean is succeed.")
         # self.debug()
 
     def test_conf_9_getfloat(self):
@@ -149,7 +149,7 @@ class Test_Common_Conf(unittest.TestCase):
         self.assertIsNotNone(
             self._Conf.getfloat('test_conf_getfloat', 'test1'),
             'test_conf_9_getfloat is error.')
-        print "the test test_conf_9_getfloat is succeed."
+        print("the test test_conf_9_getfloat is succeed.")
         # self.debug()
 
     def test_conf_10_getint(self):
@@ -164,7 +164,7 @@ class Test_Common_Conf(unittest.TestCase):
         self._Conf.set('test_conf_getint', 'test6', '-1.2')
         self.assertIsNotNone(self._Conf.getint('test_conf_getint', 'test1'),
                              'test_conf_10_getint is error.')
-        print "the test test_conf_10_getint is succeed."
+        print("the test test_conf_10_getint is succeed.")
         # self.debug()
 
     def debug(self):
