@@ -83,6 +83,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     # Indicate who your project is intended for
     # 'Intended Audience :: Developers',
     # 'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries'
 
     # Pick your license as you wish
     'License :: OSI Approved :: MIT License',
@@ -94,7 +95,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     # 'Programming Language :: Python :: 3 :: Only',
-    'Operating System :: OS Independent'
+    # 'Operating System :: OS Independent'
 ]
 DVSNIER_KEYWORDS = 'config, development'  # Optional
 DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
