@@ -83,7 +83,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     # Indicate who your project is intended for
     # 'Intended Audience :: Developers',
     # 'Topic :: Software Development :: Build Tools',
-    'Topic :: Software Development :: Libraries'
+    'Topic :: Software Development :: Libraries',
 
     # Pick your license as you wish
     'License :: OSI Approved :: MIT License',
@@ -111,7 +111,7 @@ DVSNIER_INSTALL_REQUIRES = [  # Optional
     # 'pathlib2==2.3.5',
     # 'toml==0.10.2',
     # 'twine==1.15.0',
-    'com.dvsnier.directory>=0.0.1.dev2',
+    'com.dvsnier.directory>=0.0.1.dev3',
     'configparser',
     'logging',
 ]
