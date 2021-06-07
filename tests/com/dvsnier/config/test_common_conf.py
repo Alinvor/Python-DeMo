@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 
 import unittest
-from com.dvsnier.conf.common_conf import Conf, logging_conf
-from com.dvsnier.dir.common_dir import generate_file_name_only, mk_dir
+from com.dvsnier.config.common_conf import Conf, logging_conf
+from com.dvsnier.directory.common_dir import generate_file_name_only, mk_dir
 
 
 class Test_Common_Conf(unittest.TestCase):
