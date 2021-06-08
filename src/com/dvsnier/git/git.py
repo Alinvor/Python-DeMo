@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from com.dvsnier.conf.common_conf import logging_conf
+from com.dvsnier.config.common_conf import logging_conf
 
 
 class Git(object):
