@@ -28,7 +28,7 @@ def read_text(file_name):
 
 PROJECT_PREFIX = '/Users/dovsnier/Documents/Work_Space_Python/Python-DeMo/'
 project = PROJECT_PREFIX
-print(project)
+# print(project)
 PROJECT_DIRECTORY = 'process'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
 README_ROOT_DIRECTORY = os.path.join(project, 'doc/description')
