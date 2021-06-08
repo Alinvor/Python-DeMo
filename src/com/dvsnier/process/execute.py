@@ -36,9 +36,9 @@ def execute(cmds, quiet=True):
     end = time.time()
     if not quiet:
         if platform.system() == 'Linux' and os.isatty(1):
-            print '\r',
+            print('\r'),
         msg = '[%.5f] -> %s' % (end - start, ' | '.join(cmds))
-        print msg
+        print(msg)
     content = output.rstrip('\n')
     # logging.debug('the current run process pid(cwd: %s, ppid: %s, id: %s%d).' %
     #               (p.pid, os.getppid(), type(p), id(p)))
