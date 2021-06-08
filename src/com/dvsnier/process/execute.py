@@ -1,12 +1,14 @@
 # -- coding:utf-8 --
 
+import datetime
 # import logging
 import os
-import time
-import subprocess
 import platform
+import time
+import sys
+import subprocess
+
 from com.dvsnier.directory.common_dir import generate_complex_file_name
-import datetime
 
 
 def execute(cmds, quiet=True):
@@ -17,10 +19,7 @@ def execute(cmds, quiet=True):
     #               (p.pid, os.getppid(), type(p), id(p)))
     processes = [p]
     for x in cmds[1:]:
-        p = subprocess.Popen(x,
-                             stdin=p.stdout,
-                             stdout=subprocess.PIPE,
-                             shell=True)
+        p = subprocess.Popen(x, stdin=p.stdout, stdout=subprocess.PIPE, shell=True)
         # logging.debug(
         #     'the current sub process pid(cwd: %s, ppid: %s, id: %s%d).' %
         #     (p.pid, os.getppid(), type(p), id(p)))
@@ -39,7 +38,11 @@ def execute(cmds, quiet=True):
             print('\r'),
         msg = '[%.5f] -> %s' % (end - start, ' | '.join(cmds))
         print(msg)
-    content = output.rstrip('\n')
+    content = ''
+    if sys.version_info.major > 2:
+        content = str(output.rstrip(bytes('\n', encoding='utf-8')))
+    else:
+        content = output.rstrip('\n')
     # logging.debug('the current run process pid(cwd: %s, ppid: %s, id: %s%d).' %
     #               (p.pid, os.getppid(), type(p), id(p)))
     return content
@@ -57,11 +60,8 @@ def trace(cmds):
                     file.write('\n')
                 file.write(
                     str('the current timestamp: {timestamp}\n'.format(
-                        timestamp=datetime.datetime.now().strftime(
-                            '%Y-%m-%d %H:%M:%S.%f'))))
-                file.write(
-                    str('the current command: [{cmd}].\n'.format(
-                        cmd=' | '.join(command))))
+                        timestamp=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))))
+                file.write(str('the current command: [{cmd}].\n'.format(cmd=' | '.join(command))))
                 # file.write(execute(command, quiet=False))
                 file.write(execute(command, quiet=True))
                 file.write('\n')
