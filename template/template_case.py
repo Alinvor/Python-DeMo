@@ -14,11 +14,11 @@ class Test_Demo(unittest.TestCase):
         return super(Test_Demo, self).setUp()
 
     def _xxx(self):
-        print "the test xxx is succeed."
+        print("the test xxx is succeed.")
         pass
 
     def test_xxx(self):
-        print "the test xxx is succeed."
+        print("the test xxx is succeed.")
         pass
 
     def tearDown(self):
