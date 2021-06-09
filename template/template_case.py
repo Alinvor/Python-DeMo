@@ -32,4 +32,7 @@ class Test_Demo(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    ''' the unittest suite '''
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test_Demo)
+    unittest.TextTestRunner(verbosity=2).run(suite)
     unittest.main()
