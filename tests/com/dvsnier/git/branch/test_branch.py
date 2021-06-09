@@ -57,7 +57,7 @@ class Test_Branch(unittest.TestCase):
         self.assertIsNotNone(branch_set_upstream_to, 'test_3_branch_set_upstream_to is error.')
 
     def test_5_get_current_branch_name(self):
-        branch_name = Test_Branch._branch.get_branch()
+        # branch_name = Test_Branch._branch.get_branch()
         # branch_name = None
         # branch_name = ''
         # branch_name = ' '
