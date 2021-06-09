@@ -1,12 +1,15 @@
 # -*- coding:utf-8 -*-
 
+import logging
+
 from com.dvsnier.git.git import Git
 from com.dvsnier.process.execute import execute
-import logging
 
 
 class Branch(Git, object):
     'the git branch command class'
+
+    _current_branch_name = None
 
     def __init__(self):
         super(Branch, self).__init__()
@@ -15,7 +18,7 @@ class Branch(Git, object):
         'the get current branch name'
         current_branch_list_str = execute(["git branch"])
         if len(current_branch_list_str) > 0:
-            branch_name_list = ' '.join(current_branch_list_str.split())
+            branch_name_list = ' '.join(str(current_branch_list_str).split())
             if len(branch_name_list) > 0:
                 branch_s = branch_name_list.split(' ')
                 for index in range(len(branch_s)):
@@ -46,3 +49,25 @@ class Branch(Git, object):
         return execute([
             'git branch --list --all --sort=committerdate --format=\'%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:red)%(objectname:short)%(color:reset)|%(color:reset)(%(color:green)%(committerdate:relative)%(color:reset))\''
         ])
+
+    def branch_set_upstream_to(self, branch_name):
+        ''' the track remote and local branch associations '''
+        if not branch_name or not len(branch_name.strip()) > 0:
+            logging.exception('the current branch name is invalid.' )
+            raise KeyError('the current branch name is invalid.')
+        return execute([
+            'git branch -u origin/{0} {0}'.format(branch_name)
+        ])
+
+    def get_current_branch_name(self):
+        ''' the obtain current branch name '''
+        return self._current_branch_name
+
+    def set_current_branch_name(self, branch_name):
+        ''' the set current branch name '''
+        if not branch_name or not len(branch_name.strip()) > 0:
+            logging.exception('the current branch name is invalid.' )
+            raise KeyError('the current branch name is invalid.')
+        self._current_branch_name = branch_name
+
+
