@@ -28,4 +28,7 @@ class Test_XXX(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    ''' the unittest suite '''
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test_XXX)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.main()
