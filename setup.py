@@ -63,7 +63,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.git'  # Required
-DVSNIER_VERSION = '0.0.1.dev0'  # Required
+DVSNIER_VERSION = '0.0.1.dev1'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier git.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
