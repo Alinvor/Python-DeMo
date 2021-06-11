@@ -16,4 +16,4 @@ class Config(Git, object):
 
     def local_info(self):
         'the local git information'
-        return execute(['git config --global --list'])
+        return execute(['git config --local --list'])

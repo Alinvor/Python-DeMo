@@ -18,7 +18,7 @@ class Test_Checkout(unittest.TestCase):
         cls._branch.set_current_branch_name(cls._branch.get_branch())
 
     def setUp(self):
-        return super(Test_Checkout, self).setUp()
+        super(Test_Checkout, self).setUp()
 
     def test_branch_checkout(self):
         branch_checkout = Checkout()
@@ -29,7 +29,7 @@ class Test_Checkout(unittest.TestCase):
         # print("the test branch_checkout is succeed.")
 
     def tearDown(self):
-        return super(Test_Checkout, self).tearDown()
+        super(Test_Checkout, self).tearDown()
 
     @classmethod
     def tearDownClass(cls):
