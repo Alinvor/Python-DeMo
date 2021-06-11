@@ -12,4 +12,4 @@ class Pull(Git, object):
 
     def fast_foward(self):
         'the execute git pull origin option'
-        return execute(['git pull origin'])
+        return execute(['git pull --ff --stat origin'])
