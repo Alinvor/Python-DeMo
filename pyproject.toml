@@ -1,0 +1,17 @@
+[build-system]
+# https://setuptools.readthedocs.io/en/latest/build_meta.html
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/stable/cli/pip/#pep-517-and-518-support
+#
+# As of version 10.0, pip supports projects declaring dependencies that are
+# required at install time using a pyproject.toml file, in the form described
+# in PEP 518. When building a project, pip will install the required
+# dependencies locally, and make them available to the build process.
+# Furthermore, from version 19.0 onwards, pip supports projects specifying the
+# build backend they use in pyproject.toml, in the form described in PEP 517.
+#
+requires = [
+    "setuptools>=40.8.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
