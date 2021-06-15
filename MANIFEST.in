@@ -1,0 +1,12 @@
+# https://packaging.python.org/guides/using-manifest-in/
+
+include pyproject.toml
+
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# # Include the requirements file
+include requirements.txt
