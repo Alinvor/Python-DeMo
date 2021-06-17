@@ -1,13 +1,13 @@
 # -*- coding:utf-8 -*-
 
-class Smtp(object):
-    ''' the SMTP class that is use for send email '''
+class SmtpBase(object):
+    ''' the base SMTP class that is use for send email '''
 
     # the smtp instance
     _smtpObj = None
 
     def __init__(self):
-        super(Smtp, self).__init__()
+        super(SmtpBase, self).__init__()
 
     def get_smtpObj(self):
         ''' the get smtp instance '''
