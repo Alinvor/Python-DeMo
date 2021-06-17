@@ -35,12 +35,16 @@ class Config(object):
         with open(config_file) as file_handler:
             lines = file_handler.readlines()
         for line in lines:
-            try:
-                split_at = line.index("=")
-            except ValueError:
-                continue  # ignore bad/empty lines
+            if line.strip().startswith('#'):
+                continue # ignore notes
             else:
-                config[line[:split_at].strip()] = line[split_at + 1:].strip()
+                try:
+                    split_at = line.index("=")
+                except ValueError:
+                    continue  # ignore bad/empty lines
+                else:
+                    config[line[:split_at].strip()] = line[split_at + 1:].strip()
+        logging.debug('the current config file: {}'.format(config))
         return config
 
     def get_mail_host(self):

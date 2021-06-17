@@ -3,6 +3,7 @@
 import os
 import unittest
 
+from com.dvsnier.config.common_conf import logging_conf
 from com.dvsnier.email.config.config import Config
 
 
@@ -13,6 +14,8 @@ class Test_Config(unittest.TestCase):
     def setUpClass(cls):
         print("...the set up...")
         print('')
+        kwargs = {'output_dir_name': 'email', 'file_name': 'email'}
+        logging_conf(kwargs)
         cls.config = Config()
 
     def setUp(self):
@@ -21,13 +24,16 @@ class Test_Config(unittest.TestCase):
     def test_obtain_config(self):
         cwd = os.getcwd()
         self.assertIsNotNone(cwd, 'test_obtain_config is error.')
-        cfg_file = os.path.join(cwd, '/conf/email_config.test.cfg') # error path
-        cfg_file = os.path.join(cwd, 'conf/email_config.test.cfg') # ok path
+        # cfg_file = os.path.join(cwd, '/conf/email_config.test.cfg') # error path
+        # cfg_file = os.path.join(cwd, 'conf/email_config.test.cfg') # ok path
+        cfg_file = 'conf/email_config.test.cfg' # ok path
         self.assertIsNotNone(cfg_file, 'test_obtain_config is error.')
         config = Test_Config.config.obtain_config(cfg_file)
         self.assertIsNotNone(config, 'test_obtain_config is error.')
         # print(config['project-prefix'])
         print(config['version_info'])
+        # print(config['home'])
+        print(config)
 
 
     def tearDown(self):
