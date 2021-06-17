@@ -2,13 +2,14 @@
 
 import logging
 import os
-import sys
 
 
 class Config(object):
     '''the email config'''
 
-    _sep = "\\" if sys.platform == "win32" else "/"  # no os module here yet - poor mans version
+    # _sep = "\\" if sys.platform == "win32" else "/"  # no os module here yet - poor mans version
+    # the config information that dict typing
+    _config = {}
     # the Set up server
     _mail_host = None
     # the Server SSL default port
@@ -19,8 +20,12 @@ class Config(object):
     _mail_pass = None
     # the email Sender
     _mail_sender = None
+    # the email Sender alias that optional
+    _sender_alias = None
     # the email Receiver
     _mail_receiver = None
+    # the email Receiver alias that optional
+    _receiver_alias = None
 
 
     def __init__(self):
@@ -31,7 +36,6 @@ class Config(object):
         if not config_file or not os.path.exists(config_file):
             raise FileNotFoundError('the current config path is not found.')
         logging.debug('the current config file is {}'.format(os.path.abspath(config_file)))
-        config = {}
         with open(config_file) as file_handler:
             lines = file_handler.readlines()
         for line in lines:
@@ -43,12 +47,17 @@ class Config(object):
                 except ValueError:
                     continue  # ignore bad/empty lines
                 else:
-                    config[line[:split_at].strip()] = line[split_at + 1:].strip()
-        logging.debug('the current config file: {}'.format(config))
-        return config
+                    self._config[line[:split_at].strip()] = line[split_at + 1:].strip()
+        logging.debug('the current config file: {}'.format(self._config))
+        return self._config
+
+    def get_config(self):
+        ''' the get config information that dict typing '''
+        return self._config
 
     def get_mail_host(self):
         ''' the get mail host '''
+        self._mail_host = self._config['mail_host']
         return self._mail_host
 
     def set_mail_host(self, mail_host):
@@ -58,6 +67,7 @@ class Config(object):
 
     def get_mail_port(self):
         ''' the get mail port '''
+        self._mail_port = self._config['mail_port']
         return self._mail_port
 
     def set_mail_port(self, mail_port):
@@ -67,6 +77,7 @@ class Config(object):
 
     def get_mail_user(self):
         ''' the get mail user '''
+        self._mail_user = self._config['mail_user']
         return self._mail_user
 
     def set_mail_user(self, mail_user):
@@ -76,6 +87,7 @@ class Config(object):
 
     def get_mail_pass(self):
         ''' the get mail password '''
+        self._mail_pass = self._config['mail_pass']
         return self._mail_pass
 
     def set_mail_pass(self, mail_pass):
@@ -85,6 +97,7 @@ class Config(object):
 
     def get_mail_sender(self):
         ''' the get mail sender '''
+        self._mail_sender = self._config['mail_sender']
         return self._mail_sender
 
     def set_mail_sender(self, mail_sender):
@@ -92,11 +105,32 @@ class Config(object):
         self._mail_sender = mail_sender
         return self
 
+    def get_sender_alias(self):
+        ''' the get sender alias'''
+        self._sender_alias = self._config['sender_alias']
+        return self._sender_alias
+
+    def set_sender_alias(self, sender_alias):
+        ''' the set sender alias'''
+        self._sender_alias = sender_alias
+        return self
+
     def get_mail_receiver(self):
         ''' the get mail receiver '''
+        self._mail_receiver = self._config['mail_receiver']
         return self._mail_receiver
 
     def set_mail_receiver(self, mail_receiver):
         ''' the set mail receiver '''
         self._mail_receiver = mail_receiver
+        return self
+
+    def get_receiver_alias(self):
+        ''' the get receiver alias '''
+        self._receiver_alias = self._config['receiver_alias']
+        return self._receiver_alias
+
+    def set_receiver_alias(self, receiver_alias):
+        ''' the set receiver alias '''
+        self._receiver_alias = receiver_alias
         return self

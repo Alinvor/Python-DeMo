@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import logging
 import os
 import unittest
 
@@ -17,24 +18,69 @@ class Test_Config(unittest.TestCase):
         kwargs = {'output_dir_name': 'email', 'file_name': 'email'}
         logging_conf(kwargs)
         cls.config = Config()
+        cls.cfg = {}
 
     def setUp(self):
         super(Test_Config, self).setUp()
 
-    def test_obtain_config(self):
+    def test_0_obtain_config(self):
         cwd = os.getcwd()
-        self.assertIsNotNone(cwd, 'test_obtain_config is error.')
+        self.assertIsNotNone(cwd, 'test_0_obtain_config is error.')
         # cfg_file = os.path.join(cwd, '/conf/email_config.test.cfg') # error path
         # cfg_file = os.path.join(cwd, 'conf/email_config.test.cfg') # ok path
         cfg_file = 'conf/email_config.test.cfg' # ok path
-        self.assertIsNotNone(cfg_file, 'test_obtain_config is error.')
-        config = Test_Config.config.obtain_config(cfg_file)
-        self.assertIsNotNone(config, 'test_obtain_config is error.')
-        # print(config['project-prefix'])
-        print(config['version_info'])
+        self.assertIsNotNone(cfg_file, 'test_0_obtain_config is error.')
+        self.cfg = Test_Config.config.obtain_config(cfg_file)
+        self.assertIsNotNone(self.cfg, 'test_0_obtain_config is error.')
+        # print(self.cfg['project-prefix'])
+        # print(self.cfg['version_info'])
         # print(config['home'])
-        print(config)
+        # print(self.cfg)
 
+    def test_1_get_mail_host(self):
+        value = self.config.get_mail_host()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_2_get_mail_port(self):
+        value = self.config.get_mail_port()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_3_get_mail_user(self):
+        value = self.config.get_mail_user()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_4_get_mail_pass(self):
+        value = self.config.get_mail_pass()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_5_get_mail_sender(self):
+        value = self.config.get_mail_sender()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_6_get_sender_alias(self):
+        value = self.config.get_sender_alias()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_7_get_mail_receiver(self):
+        value = self.config.get_mail_receiver()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_8_get_receiver_alias(self):
+        value = self.config.get_receiver_alias()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
+
+    def test_9_get_config(self):
+        value = self.config.get_config()
+        logging.debug('the value is {}.'.format(value))
+        self.assertIsNotNone(value)
 
     def tearDown(self):
         super(Test_Config, self).tearDown()
