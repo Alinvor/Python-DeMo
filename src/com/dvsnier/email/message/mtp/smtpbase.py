@@ -5,6 +5,8 @@ class SmtpBase(object):
 
     # the smtp instance
     _smtpObj = None
+    # the mime instance
+    _mimeObj = None
 
     def __init__(self):
         super(SmtpBase, self).__init__()
@@ -18,3 +20,13 @@ class SmtpBase(object):
         if not smtpObj:
             raise KeyError('the smtp instance is undefined or invalid')
         self._smtpObj = smtpObj
+
+    def get_mimeObj(self):
+        ''' the get mime instance '''
+        return self._mimeObj
+
+    def set_mimeObj(self, mimeObj):
+        ''' the set mime instance '''
+        if not mimeObj:
+            raise KeyError('the mime instance is undefined or invalid')
+        self._mimeObj = mimeObj
