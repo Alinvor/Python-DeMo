@@ -3,9 +3,9 @@
 class SmtpBase(object):
     ''' the base SMTP class that is use for send email '''
 
-    # the smtp instance
+    # the smtplib smtp instance
     _smtpObj = None
-    # the mime instance
+    # the smtplib mime instance
     _mimeObj = None
 
     def __init__(self):
