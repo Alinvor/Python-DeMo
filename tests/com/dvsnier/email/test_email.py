@@ -30,6 +30,17 @@ class Test_Email(unittest.TestCase):
         logging.info(cfg_info)
         # print(cfg_info)
 
+    def test_2_init(self):
+        ...
+
+    def test_3_builderText(self):
+        ...
+
+    def test_4_sendmail(self):
+        ...
+
+    def test_5_quit(self):
+        ...
 
     def tearDown(self):
         super(Test_Email, self).tearDown()

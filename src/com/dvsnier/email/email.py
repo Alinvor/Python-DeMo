@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 
-
+from com.dvsnier.email.message.builder.mimetextbuilder import MIMETextBuilder
 from com.dvsnier.email.config.config import Config
+from com.dvsnier.email.message.mtp.smtp import Smtp
+from com.dvsnier.email.message.mtp.smtpssl import SmtpSSL
 
 
 class Email(object):
@@ -9,6 +11,8 @@ class Email(object):
 
     # the config object
     _config = None
+    # the Smtp object
+    _smtp = None
 
     def __init__(self):
         super(Email, self).__init__()
@@ -37,6 +41,30 @@ class Email(object):
         ''' the get config information that dict typing '''
         return self.get_config().get_config()
 
-    def init(self):
-        ''' the initlizated email environment '''
+    def init(self, mode=False):
+        '''
+            the initlizated email environment
+            mode: true that is ssl mode, otherwise no
+        '''
+        if mode:
+            self._smtp = SmtpSSL()
+        else:
+            self._smtp = Smtp()
+        self._smtp.connect(self.get_config().get_mail_host(), self.get_config().get_mail_port())
+        self._smtp.login(self.get_config().get_mail_user(), self.get_config().get_mail_pass())
+        return self
+
+    def builderText(self, content):
+        ''' the default build content that is what subtype is plain and charset is utf-8 '''
+        builder = MIMETextBuilder(self._smtp)
+        builder.setContent(content).build()
         pass
+
+    def sendmail(self):
+        ''' the send mail '''
+        self._smtp.sendmail(self.get_config().get_mail_sender(), self.get_config().get_mail_receiver(), '')
+        return self
+
+    def quit(self):
+        ''' the send mail '''
+        self._smtp.quit()
