@@ -16,6 +16,8 @@ class IConfigCycle(ICycle, object):
 
     def onConfig(self, config):
         ''' the configuration information execution mapping  '''
+        # the maybe no required set config then you active to settings
+        # self.set_config(config)
         pass
 
     def onExecute(self):
