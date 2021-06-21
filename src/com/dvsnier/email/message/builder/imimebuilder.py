@@ -1,17 +1,13 @@
 # -*- coding:utf-8 -*-
 
-from typing import Optional
-
 from com.dvsnier.email.message.builder.ibuilder import IBuilder
-from com.dvsnier.email.message.mtp.smtp import Smtp
 
 
 class IMIMEBuilder(IBuilder, object):
     '''the mime build class'''
 
     # the smtp instance
-    # _smtp = None
-    _smtp: Optional[Smtp]
+    _smtp = None
 
     def __init__(self, smtp):
         super(IMIMEBuilder, self).__init__()
