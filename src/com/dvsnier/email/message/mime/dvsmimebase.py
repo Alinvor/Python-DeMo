@@ -10,8 +10,8 @@ class DvsMIMEBase(IDvsBase, ICallback, object):
 
     _message = None
     _subject = None
-    _from = None
-    _to = None
+    # _from = None
+    # _to = None
 
     def __init__(self):
         super(DvsMIMEBase, self).__init__()
@@ -35,23 +35,23 @@ class DvsMIMEBase(IDvsBase, ICallback, object):
         self._subject = subject
         return self
 
-    def get_from(self):
-        ''' the get email from address '''
-        return self._from
+    # def get_from(self):
+    #     ''' the get email from address '''
+    #     return self._from
 
-    def set_from(self, from):
-        ''' the set email from address '''
-        self._from = from
-        return self
+    # def set_from(self, from):
+    #     ''' the set email from address '''
+    #     self._from = from
+    #     return self
 
-    def get_to(self):
-        ''' the get email to address '''
-        return self._to
+    # def get_to(self):
+    #     ''' the get email to address '''
+    #     return self._to
 
-    def set_to(self, to):
-        ''' the set email to address '''
-        self._to = to
-        return self
+    # def set_to(self, to):
+    #     ''' the set email to address '''
+    #     self._to = to
+    #     return self
 
     def callback(self):
         return super().callback()
