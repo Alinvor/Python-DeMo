@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 
+from com.dvsnier.email.lifecycle.iconfigcycle import IConfigCycle
 from com.dvsnier.email.message.mime.iattribute import IAttribute
 
 
-class IMIMEAttribute(IAttribute, object):
+class IMIMEAttribute(IAttribute, IConfigCycle, object):
     ''' the MIME attribute class '''
 
     _sender = None
@@ -13,6 +14,20 @@ class IMIMEAttribute(IAttribute, object):
 
     def __init__(self):
         super(IMIMEAttribute, self).__init__()
+
+    def onConfig(self, config):
+        super().onConfig(config)
+        if not config:
+            self._config = config
+            self.onExecute()
+        return self
+
+    def onExecute(self):
+        super().onExecute()
+        self.set_sender(self.get_config().get_mail_sender())
+        self.set_sender_alias(self.get_config().get_sender_alias())
+        self.set_receiver(self.get_config().get_mail_receiver())
+        self.set_receiver_alias(self.get_config().get_mail_receiver())
 
     def get_sender(self):
         ''' the get sender '''

@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+from com.dvsnier.email.lifecycle.iconfigcycle import IConfigCycle
 from com.dvsnier.email.message.mime.imimeattribute import IMIMEAttribute
 
 
