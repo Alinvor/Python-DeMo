@@ -2,6 +2,7 @@
 
 from typing import Optional
 from com.dvsnier.email.message.builder.abstractmimebuilder import AbstractMIMEBuilder
+from com.dvsnier.email.message.mime.dvsmimetext import DvsMIMEText
 
 
 class MIMETextBuilder(AbstractMIMEBuilder, object):
@@ -25,8 +26,17 @@ class MIMETextBuilder(AbstractMIMEBuilder, object):
 
     def build(self):
         super().build()
-
-        self._smtp.set_mimeObj(None)
-
-
-
+        # 1. build mime object
+        self._dvsMime = DvsMIMEText()
+        # 2. the transmit what config object
+        self._dvsMime.get_attribute().onConfig(self.get_config())
+        # 3. set content
+        self._dvsMime.get_attribute().set_content(self._content)
+        # 4. set subtype that default plain type
+        self._dvsMime.get_attribute().set_subtype('plain')
+        # 5. set charset
+        self._dvsMime.get_attribute().set_charset('utf-8')
+        # 6. the execute function what is callback
+        self._dvsMime.callback()
+        # 7. the configure mime object
+        self._smtp.set_mimeObj(self._dvsMime.get_message())
