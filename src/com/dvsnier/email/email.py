@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
-from com.dvsnier.email.message.builder.mimetextbuilder import MIMETextBuilder
 from com.dvsnier.email.config.config import Config
+from com.dvsnier.email.message.builder.mimetextbuilder import MIMETextBuilder
 from com.dvsnier.email.message.mtp.smtp import Smtp
 from com.dvsnier.email.message.mtp.smtpssl import SmtpSSL
 
@@ -10,17 +10,21 @@ class Email(object):
     '''the email class'''
 
     # the config object
+    # type: Union[Config]
     _config = None
     # the Smtp object
+    # type: Union[SmtpBase]
     _smtp = None
 
     def __init__(self):
+        '''
+            the type comment reference:
+                1. https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
+
+            type: () -> None
+        '''
         super(Email, self).__init__()
         self._config = Config()
-
-    def template(self):
-        ''' the template method '''
-        pass
 
     def get_config(self):
         ''' the get config information '''
@@ -57,12 +61,13 @@ class Email(object):
     def builderText(self, content):
         ''' the default build content that is what subtype is plain and charset is utf-8 '''
         builder = MIMETextBuilder(self._smtp)
+        builder.set_config(self.get_config())
         builder.setContent(content).build()
-        pass
 
     def sendmail(self):
         ''' the send mail '''
-        self._smtp.sendmail(self.get_config().get_mail_sender(), self.get_config().get_mail_receiver(), '')
+        self._smtp.sendmail(self.get_config().get_mail_sender(), self.get_config().get_mail_receiver(),
+        self._smtp.get_mimeObj().as_string())
         return self
 
     def quit(self):
