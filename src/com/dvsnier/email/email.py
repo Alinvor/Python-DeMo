@@ -58,11 +58,11 @@ class Email(object):
         self._smtp.login(self.get_config().get_mail_user(), self.get_config().get_mail_pass())
         return self
 
-    def builderText(self, content):
+    def builderText(self, subject, content):
         ''' the default build content that is what subtype is plain and charset is utf-8 '''
         builder = MIMETextBuilder(self._smtp)
         builder.set_config(self.get_config())
-        builder.setContent(content).build()
+        builder.set_subject(subject).setContent(content).build()
 
     def sendmail(self):
         ''' the send mail '''

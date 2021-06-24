@@ -31,16 +31,24 @@ class Test_Email(unittest.TestCase):
         # print(cfg_info)
 
     def test_2_init(self):
-        ...
+        # smtp ssl
+        self._email.init(True)
+        # the default smtp
+        # self._email.init()
+        logging.debug('开始初始化...')
 
     def test_3_builderText(self):
-        ...
+        logging.debug('开始构建邮件文本...')
+        self._email.builderText('测试 Python 邮件', '您好，我是测试用例发来的邮件测试...')
+        logging.debug('构建邮件文本完成...')
 
     def test_4_sendmail(self):
-        ...
+        self._email.sendmail()
+        logging.debug('开始发送邮件...')
 
     def test_5_quit(self):
-        ...
+        self._email.quit()
+        logging.debug('完成发送邮件, 状态完成...')
 
     def tearDown(self):
         super(Test_Email, self).tearDown()
