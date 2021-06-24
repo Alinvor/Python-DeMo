@@ -13,7 +13,7 @@ class MIMETextBuilder(AbstractMIMEBuilder, object):
         super(MIMETextBuilder, self).__init__(smtp)
 
     # def onExecute(self):
-    #     super().onExecute()
+    #     super(MIMETextBuilder, self).onExecute()
     #     if self.get_subtype():
     #         self.set_subtype('plain')
     #     if self.get_charset():
@@ -24,7 +24,7 @@ class MIMETextBuilder(AbstractMIMEBuilder, object):
         return self
 
     def build(self):
-        super().build()
+        super(MIMETextBuilder, self).build()
         # 1. build mime object
         self._dvsMime = DvsMIMEText()
         # 2. the transmit what config object

@@ -9,7 +9,7 @@ class IConfigCycle(ICycle, object):
     ''' the config cycle class '''
 
     # the config instance
-    _config: Union[Config, None]
+    _config = None
 
     def __init__(self):
         super(IConfigCycle, self).__init__()

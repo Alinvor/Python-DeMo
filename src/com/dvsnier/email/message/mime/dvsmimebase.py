@@ -54,4 +54,4 @@ class DvsMIMEBase(IDvsBase, ICallback, object):
     #     return self
 
     def callback(self):
-        return super().callback()
+        return super(DvsMIMEBase, self).callback()

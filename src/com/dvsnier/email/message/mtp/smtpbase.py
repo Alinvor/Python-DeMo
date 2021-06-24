@@ -27,6 +27,6 @@ class SmtpBase(object):
 
     def set_mimeObj(self, mimeObj):
         ''' the set mime instance '''
-        if not mimeObj:
-            raise KeyError('the mime instance is undefined or invalid')
+        # if not mimeObj:
+        #     raise KeyError('the mime instance is undefined or invalid')
         self._mimeObj = mimeObj

@@ -14,7 +14,7 @@ class DvsMIMEText(DvsMIMEBase, object):
         self._attribute = IMIMETextAttribute()
 
     def callback(self):
-        super().callback()
+        super(DvsMIMEText, self).callback()
         if not self.get_attribute():
             self._message = MIMEText(self.get_attribute().get_content(), self.get_attribute().get_subtype(),
             self.get_attribute().get_charset())

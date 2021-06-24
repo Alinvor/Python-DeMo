@@ -16,14 +16,14 @@ class IMIMEAttribute(IAttribute, IConfigCycle, object):
         super(IMIMEAttribute, self).__init__()
 
     def onConfig(self, config):
-        super().onConfig(config)
+        super(IMIMEAttribute, self).onConfig(config)
         if not config:
             self._config = config
             self.onExecute()
         return self
 
     def onExecute(self):
-        super().onExecute()
+        super(IMIMEAttribute, self).onExecute()
         self.set_sender(self.get_config().get_mail_sender())
         self.set_sender_alias(self.get_config().get_sender_alias())
         self.set_receiver(self.get_config().get_mail_receiver())
