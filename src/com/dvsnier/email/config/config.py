@@ -3,8 +3,10 @@
 import logging
 import os
 
+from com.dvsnier.email.callback.icallback import ICallback
 
-class Config(object):
+
+class Config(ICallback, object):
     '''the email config'''
 
     # _sep = "\\" if sys.platform == "win32" else "/"  # no os module here yet - poor mans version
@@ -27,7 +29,6 @@ class Config(object):
     # the email Receiver alias that optional
     _receiver_alias = None
 
-
     def __init__(self):
         super(Config, self).__init__()
 
@@ -35,21 +36,35 @@ class Config(object):
         """the read xxx.cfg"""
         if not config_file or not os.path.exists(config_file):
             raise FileNotFoundError('the current config path is not found.')
-        logging.debug('the current config file is {}'.format(os.path.abspath(config_file)))
+        logging.debug('the current config file is {}'.format(
+            os.path.abspath(config_file)))
         with open(config_file) as file_handler:
             lines = file_handler.readlines()
         for line in lines:
             if line.strip().startswith('#'):
-                continue # ignore notes
+                continue  # ignore notes
             else:
                 try:
                     split_at = line.index("=")
                 except ValueError:
                     continue  # ignore bad/empty lines
                 else:
-                    self._config[line[:split_at].strip()] = line[split_at + 1:].strip()
+                    self._config[line[:split_at].strip()] = line[split_at +
+                                                                 1:].strip()
         logging.debug('the current config file: {}'.format(self._config))
+        self.callback()
         return self._config
+
+    def callback(self):
+        super(Config, self).callback()
+        self.get_mail_host()
+        self.get_mail_port()
+        self.get_mail_user()
+        self.get_mail_pass()
+        self.get_mail_sender()
+        self.get_sender_alias()
+        self.get_mail_receiver()
+        self.get_receiver_alias()
 
     def get_config(self):
         ''' the get config information that dict typing '''
