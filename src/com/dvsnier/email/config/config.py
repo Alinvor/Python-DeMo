@@ -51,20 +51,20 @@ class Config(ICallback, object):
                 else:
                     self._config[line[:split_at].strip()] = line[split_at +
                                                                  1:].strip()
-        logging.debug('the current config file: {}'.format(self._config))
+        # logging.debug('the current config file: {}'.format(self._config))
         self.callback()
         return self._config
 
     def callback(self):
         super(Config, self).callback()
-        self.get_mail_host()
-        self.get_mail_port()
-        self.get_mail_user()
-        self.get_mail_pass()
-        self.get_mail_sender()
-        self.get_sender_alias()
-        self.get_mail_receiver()
-        self.get_receiver_alias()
+        self.set_mail_host(self._config['mail_host'])
+        self.set_mail_port(self._config['mail_port'])
+        self.set_mail_user(self._config['mail_user'])
+        self.set_mail_pass(self._config['mail_pass'])
+        self.set_mail_sender(self._config['mail_sender'])
+        self.set_sender_alias(self._config['sender_alias'])
+        self.set_mail_receiver(self._config['mail_receiver'])
+        self.set_receiver_alias(self._config['receiver_alias'])
 
     def get_config(self):
         ''' the get config information that dict typing '''
@@ -72,7 +72,6 @@ class Config(ICallback, object):
 
     def get_mail_host(self):
         ''' the get mail host '''
-        self._mail_host = self._config['mail_host']
         return self._mail_host
 
     def set_mail_host(self, mail_host):
@@ -82,7 +81,6 @@ class Config(ICallback, object):
 
     def get_mail_port(self):
         ''' the get mail port '''
-        self._mail_port = self._config['mail_port']
         return self._mail_port
 
     def set_mail_port(self, mail_port):
@@ -92,7 +90,6 @@ class Config(ICallback, object):
 
     def get_mail_user(self):
         ''' the get mail user '''
-        self._mail_user = self._config['mail_user']
         return self._mail_user
 
     def set_mail_user(self, mail_user):
@@ -102,7 +99,6 @@ class Config(ICallback, object):
 
     def get_mail_pass(self):
         ''' the get mail password '''
-        self._mail_pass = self._config['mail_pass']
         return self._mail_pass
 
     def set_mail_pass(self, mail_pass):
@@ -112,7 +108,6 @@ class Config(ICallback, object):
 
     def get_mail_sender(self):
         ''' the get mail sender '''
-        self._mail_sender = self._config['mail_sender']
         return self._mail_sender
 
     def set_mail_sender(self, mail_sender):
@@ -122,7 +117,6 @@ class Config(ICallback, object):
 
     def get_sender_alias(self):
         ''' the get sender alias'''
-        self._sender_alias = self._config['sender_alias']
         return self._sender_alias
 
     def set_sender_alias(self, sender_alias):
@@ -132,7 +126,6 @@ class Config(ICallback, object):
 
     def get_mail_receiver(self):
         ''' the get mail receiver '''
-        self._mail_receiver = self._config['mail_receiver']
         return self._mail_receiver
 
     def set_mail_receiver(self, mail_receiver):
@@ -142,7 +135,6 @@ class Config(ICallback, object):
 
     def get_receiver_alias(self):
         ''' the get receiver alias '''
-        self._receiver_alias = self._config['receiver_alias']
         return self._receiver_alias
 
     def set_receiver_alias(self, receiver_alias):
