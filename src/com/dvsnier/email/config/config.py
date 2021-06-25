@@ -36,8 +36,9 @@ class Config(ICallback, object):
         """the read xxx.cfg"""
         if not config_file or not os.path.exists(config_file):
             raise FileNotFoundError('the current config path is not found.')
-        logging.debug('the current config file is {}'.format(
-            os.path.abspath(config_file)))
+        logging.info(
+            'the start parsing the configuration file that is {}'.format(
+                os.path.abspath(config_file)))
         with open(config_file) as file_handler:
             lines = file_handler.readlines()
         for line in lines:
@@ -65,6 +66,7 @@ class Config(ICallback, object):
         self.set_sender_alias(self._config['sender_alias'])
         self.set_mail_receiver(self._config['mail_receiver'])
         self.set_receiver_alias(self._config['receiver_alias'])
+        logging.debug('the parsing configuration information completed.')
 
     def get_config(self):
         ''' the get config information that dict typing '''

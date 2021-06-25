@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 
+import logging
+
 from com.dvsnier.email.config.config import Config
 from com.dvsnier.email.message.builder.mimetextbuilder import MIMETextBuilder
 from com.dvsnier.email.message.mtp.smtp import Smtp
@@ -50,26 +52,54 @@ class Email(object):
             the initlizated email environment
             mode: true that is ssl mode, otherwise no
         '''
+        logging.debug('the mail initialization started...')
         if mode:
-            self._smtp = SmtpSSL()
+            self._smtp = SmtpSSL(self.get_config().get_mail_host(),
+                                 self.get_config().get_mail_port())
         else:
             self._smtp = Smtp()
-        self._smtp.connect(self.get_config().get_mail_host(), self.get_config().get_mail_port())
-        self._smtp.login(self.get_config().get_mail_user(), self.get_config().get_mail_pass())
+        self._smtp.connect(self.get_config().get_mail_host(),
+                           self.get_config().get_mail_port())
+        logging.info(
+            'the current connect host that is {0} and port that is {1}.'.
+            format(self.get_config().get_mail_host(),
+                   self.get_config().get_mail_port()))
+        self._smtp.login(self.get_config().get_mail_user(),
+                         self.get_config().get_mail_pass())
+        logging.debug(
+            'the current login user that is {0} and password that is {1}.'.
+            format(self.get_config().get_mail_user(),
+                   'the confidential data, no display'))
+        logging.info('the mail initialization is ready.')
         return self
 
     def builderText(self, subject, content):
         ''' the default build content that is what subtype is plain and charset is utf-8 '''
+        logging.debug(
+            'the generator performs the operations of building the mail subject and content...'
+        )
         builder = MIMETextBuilder(self._smtp)
         builder.set_config(self.get_config())
         builder.set_subject(subject).setContent(content).build()
+        logging.debug('the generator build task complete.')
 
     def sendmail(self):
         ''' the send mail '''
-        self._smtp.sendmail(self.get_config().get_mail_sender(), self.get_config().get_mail_receiver(),
-        self._smtp.get_mimeObj().as_string())
+        if self._smtp.get_mimeObj():
+            logging.info('the mail sending...')
+            self._smtp.sendmail(self.get_config().get_mail_sender(),
+                                self.get_config().get_mail_receiver(),
+                                self._smtp.get_mimeObj().as_string())
+            logging.info('the mail sending task completed.')
+        else:
+            raise ReferenceError(
+                'the current is mime object is invaild which sending mail task that is failed.'
+            )
         return self
 
     def quit(self):
         ''' the send mail '''
         self._smtp.quit()
+        logging.info(
+            'the current e-mail has been delivered to the other e-mail, the task is completed and exit.'
+        )

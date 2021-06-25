@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import logging
 import smtplib
 import sys
 
@@ -12,6 +13,9 @@ class SmtpSSL(Smtp, object):
         super(SmtpSSL, self).__init__()
         if sys.version_info.major >= 3 and sys.version_info.minor >= 7:
             self._smtpObj = smtplib.SMTP_SSL(host, port)
+            logging.warn(
+                'the current Python version ({0}) is greater than or equal to 3.7, and the constructor must set host and port, which can be set by.'
+                .format(sys.version))
         else:
             self._smtpObj = smtplib.SMTP_SSL()
 
