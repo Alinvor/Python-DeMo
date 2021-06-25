@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import logging
+import sys
 import time
 import unittest
 
@@ -49,8 +50,10 @@ class Test_Email(unittest.TestCase):
         content = '''
                      您好，我是测试用例发来的邮件测试({0})...
                   '''.format(timestamps)
-        self._email.builderText('测试 Python 邮件 {0} '.format(timestamps),
-                                content)
+        version = str(sys.version_info.major) + '.' + str(
+            sys.version_info.minor)
+        self._email.builderText(
+            '测试 Python {0} 邮件 {1} '.format(version, timestamps), content)
 
     def test_4_sendmail(self):
         self._email.sendmail()
