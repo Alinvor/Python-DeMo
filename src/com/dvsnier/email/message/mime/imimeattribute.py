@@ -17,7 +17,7 @@ class IMIMEAttribute(IAttribute, IConfigCycle, object):
 
     def onConfig(self, config):
         super(IMIMEAttribute, self).onConfig(config)
-        if not config:
+        if config:
             self._config = config
             self.onExecute()
         return self
@@ -60,5 +60,3 @@ class IMIMEAttribute(IAttribute, IConfigCycle, object):
     def set_receiver_alias(self, receiver_alias):
         ''' the set receiver alias '''
         self._receiver_alias = receiver_alias
-
-
