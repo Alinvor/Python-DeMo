@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 
 import logging
+import sys
 
 from com.dvsnier.email.message.mime.dvsmimebase import DvsMIMEBase
 from com.dvsnier.email.message.mime.imimetextattribute import IMIMETextAttribute
@@ -22,11 +23,19 @@ class DvsMIMEText(DvsMIMEBase, object):
                                      self.get_attribute().get_subtype(),
                                      self.get_attribute().get_charset())
             self._message['Subject'] = self.get_subject()
-            self._message['From'] = formataddr(
-                (self.get_attribute().get_sender_alias(),
-                 self.get_attribute().get_sender()), 'utf-8')
-            self._message['To'] = formataddr(
-                (self.get_attribute().get_receiver_alias(),
-                 self.get_attribute().get_receiver()), 'utf-8')
+            if sys.version_info.major >= 3:
+                self._message['From'] = formataddr(
+                    (self.get_attribute().get_sender_alias(),
+                     self.get_attribute().get_sender()), 'utf-8')
+                self._message['To'] = formataddr(
+                    (self.get_attribute().get_receiver_alias(),
+                     self.get_attribute().get_receiver()), 'utf-8')
+            else:
+                self._message['From'] = formataddr(
+                    (self.get_attribute().get_sender_alias(),
+                     self.get_attribute().get_sender()))
+                self._message['To'] = formataddr(
+                    (self.get_attribute().get_receiver_alias(),
+                     self.get_attribute().get_receiver()))
         else:
             logging.warn('the current attribute property is invalid.')
