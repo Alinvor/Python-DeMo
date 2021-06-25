@@ -26,14 +26,16 @@ def read_text(file_name):
     return content
 
 
-PROJECT_PREFIX = '/Users/dovsnier/Documents/Work_Space_Python/Python-DeMo/'
+PROJECT_PREFIX = os.getcwd()
 project = PROJECT_PREFIX
 print(project)
 PROJECT_DIRECTORY = 'email'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
 README_ROOT_DIRECTORY = os.path.join(project, 'doc/description')
-README_PROJECT_DIRECTORY = os.path.join(README_ROOT_DIRECTORY, PROJECT_DIRECTORY)
-PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE)
+README_PROJECT_DIRECTORY = os.path.join(README_ROOT_DIRECTORY,
+                                        PROJECT_DIRECTORY)
+PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY,
+                                   PROJECT_README_FILE)
 #
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
@@ -130,7 +132,8 @@ DVSNIER_ENTRY_POINTS = {  # Optional
 }
 DVSNIER_PROJECT_URLS = {  # Optional
     'Bug_Tracker': 'https://github.com/Alinvor/Python-DeMo/issues',
-    'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
+    'Documentation':
+    'https://packaging.python.org/tutorials/distributing-packages/',
     'Funding': 'https://donate.pypi.org',
     'Wiki': 'https://github.com/Alinvor/Python-DeMo/wiki',
     'Source': 'https://github.com/Alinvor/Python-DeMo'
@@ -193,7 +196,8 @@ setup(
     #
     # This field corresponds to the "Description-Content-Type" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
-    long_description_content_type=DVSNIER_LONG_DESCRIPTION_CONTENT_TYPE,  # Optional (see note above)
+    long_description_content_type=
+    DVSNIER_LONG_DESCRIPTION_CONTENT_TYPE,  # Optional (see note above)
 
     # This should be a valid link to your project's main homepage.
     #
