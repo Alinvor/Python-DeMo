@@ -2,18 +2,18 @@
 
 this is a simple email sending program, providing two ways: SMTP and SMTP SSL abstract modules with dev version.
 
-- [一. preconditions](#一-preconditions)
-- [二. the email config](#二-the-email-config)
+- [One. preconditions](#one-preconditions)
+- [Two. the email config](#two-the-email-config)
   - [2.1 smtp config](#21-smtp-config)
   - [2.2 smtp ssl config](#22-smtp-ssl-config)
-- [三. usage](#三-usage)
-- [四. explain](#四-explain)
+- [Three. usage](#three-usage)
+- [Four. explain](#four-explain)
 
-## 一. preconditions
+## One. preconditions
 
 - only plain text email is supported
 
-## 二. the email config
+## Two. the email config
 
 the please create a new `conf` folder in the current project directory, Then create a new `email_config.cfg` or `email_ssl_config.cfg` file
 
@@ -84,7 +84,7 @@ mail_receiver = yyy@163.com
 receiver_alias = receiver_alias
 ```
 
-## 三. usage
+## Three. usage
 
 ```python
 # -*- coding:utf-8 -*-
@@ -106,6 +106,6 @@ email.sendmail()
 email.quit()
 ```
 
-## 四. explain
+## Four. explain
 
 since it is only a `development version`, `only text mode` is provided at present, and the attachment of multimedia mode is supported in the future
