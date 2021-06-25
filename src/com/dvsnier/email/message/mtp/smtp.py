@@ -9,7 +9,6 @@ from com.dvsnier.email.message.mtp.smtpbase import SmtpBase
 
 class Smtp(SmtpBase, IMTPCycle, object):
     ''' the SMTP class that is use for send email '''
-
     def __init__(self):
         super(Smtp, self).__init__()
         self._smtpObj = smtplib.SMTP()

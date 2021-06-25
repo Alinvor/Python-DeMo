@@ -1,16 +1,19 @@
 # -*- coding:utf-8 -*-
 
-
 import smtplib
+import sys
+
 from com.dvsnier.email.message.mtp.smtp import Smtp
 
 
 class SmtpSSL(Smtp, object):
     ''' the SMTP ssl class that is use for send email '''
-
-    def __init__(self):
+    def __init__(self, host, port):
         super(SmtpSSL, self).__init__()
-        self._smtpObj = smtplib.SMTP_SSL()
+        if sys.version_info.major >= 3 and sys.version_info.minor >= 7:
+            self._smtpObj = smtplib.SMTP_SSL(host, port)
+        else:
+            self._smtpObj = smtplib.SMTP_SSL()
 
     def connect(self, host, port):
         super(SmtpSSL, self).connect(host, port)

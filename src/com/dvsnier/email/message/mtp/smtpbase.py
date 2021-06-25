@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 class SmtpBase(object):
     ''' the base SMTP class that is use for send email '''
 
