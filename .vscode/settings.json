@@ -42,13 +42,14 @@
     // "python.pythonPath": "venv2/bin/python",
     // "python.pythonPath": "venv2\\Scripts\\python.exe",
     "python.formatting.provider": "yapf",
+    // "python.formatting.yapfArgs": [
+    //     "--style",
+    //     "{based_on_style: pep8, indent_width: 4}"
+    // ],
     "python.formatting.yapfArgs": [
         "--style",
-        "{based_on_style: pep8, indent_width: 4}"
+        "{based_on_style: pep8 ,indent_width: 4, column_limit: 120}",
     ],
-    // "python.formatting.yapfArgs": [
-    //     "--style", "{based_on_style: pep8 ,indent_width: 4, column_limit: 140}",
-    // ],
     // "python.languageServer": "Jedi",
     "python.languageServer": "Pylance",
     // "python.languageServer": "Microsoft",
