@@ -5,7 +5,6 @@ import unittest
 
 class Test_XXX(unittest.TestCase):
     ''' the test xxx '''
-
     @classmethod
     def setUpClass(cls):
         print("...the set up...")
@@ -15,7 +14,7 @@ class Test_XXX(unittest.TestCase):
         super(Test_XXX, self).setUp()
 
     def test_xxx(self):
-        print ("the test xxx(test_template.py) is succeed.")
+        print("the test xxx(test_template.py) is succeed.")
         pass
 
     def tearDown(self):
