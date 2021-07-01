@@ -3,7 +3,6 @@
 
 class Template(object):
     '''the Template class'''
-
     def __init__(self):
         super(Template, self).__init__()
 
