@@ -1,12 +1,16 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
+from ast import Str
 import json
 import os
 import sys
 
 obj = {}
 obj["versionInfo"] = tuple(sys.version_info)
+obj["sysModules"] = {}
+for (k, v) in sys.modules.items():
+    (obj["sysModules"])[str(k)] = str(v)
 obj["sysPrefix"] = sys.prefix
 obj["sysVersion"] = sys.version
 obj["sysPath"] = sys.path
