@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 
-import logging
 from com.dvsnier.config.common_config import config
 from deprecated import deprecated
 
