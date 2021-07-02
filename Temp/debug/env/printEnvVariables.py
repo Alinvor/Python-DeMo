@@ -6,6 +6,6 @@ import json
 
 values = json.dumps(dict(os.environ))
 # print(values)
-print('ref: ./Temp/debug/printEnvVariables.json')
-with open('./Temp/debug/printEnvVariables.json', 'w') as file:
+print('ref: ./Temp/debug/env/printEnvVariables.json')
+with open('./Temp/debug/env/printEnvVariables.json', 'w') as file:
     file.write(values)

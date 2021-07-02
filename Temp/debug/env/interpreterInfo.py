@@ -14,6 +14,6 @@ obj["PWD"] = os.environ.get('PWD')
 
 values = json.dumps(obj)
 # print(values)
-print('ref: ./Temp/debug/interpreterInfo.json')
-with open('./Temp/debug/interpreterInfo.json', 'w') as file:
+print('ref: ./Temp/debug/env/interpreterInfo.json')
+with open('./Temp/debug/env/interpreterInfo.json', 'w') as file:
     file.write(values)
