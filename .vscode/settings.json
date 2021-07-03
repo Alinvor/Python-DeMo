@@ -2,21 +2,21 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
     },
-    "python.analysis.extraPaths": [
-        "./src",
-        "./mock",
-        "./test",
-        // darwin
-        "./venv2/bin",
-        "./venv2/lib/python2.7/site-packages",
-        "./venv/bin",
-        "./venv/lib/python3.7/site-packages",
-        // win32
-        "./venv2/Scripts",
-        "./venv2/Lib/site-packages",
-        "./venv/Scripts",
-        "./venv/Lib/site-packages",
-    ],
+    // "python.analysis.extraPaths": [
+    //     "./src",
+    //     "./mock",
+    //     "./test",
+    //     // darwin
+    //     "./venv2/bin",
+    //     "./venv2/lib/python2.7/site-packages",
+    //     "./venv/bin",
+    //     "./venv/lib/python3.7/site-packages",
+    //     // win32
+    //     "./venv2/Scripts",
+    //     "./venv2/Lib/site-packages",
+    //     "./venv/Scripts",
+    //     "./venv/Lib/site-packages",
+    // ],
     "python.analysis.logLevel": "Trace",
     // "python.analysis.watchSearchPaths": true,
     "python.analysis.typeCheckingMode": "basic",
