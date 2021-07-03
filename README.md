@@ -189,8 +189,10 @@ source ./venv/bin/activate
 ```bash
 # python
 python2 --version
+python3 --version
 # python help
-python2 --help > ./Temp/help/python_help.txt
+python2 --help > ./Temp/help/python2_help.txt
+python3 --help > ./Temp/help/python3_help.txt
 ```
 
 ### 4.2 pip setuptools wheel version
@@ -198,28 +200,35 @@ python2 --help > ./Temp/help/python_help.txt
 ```bash
 # pip
 python2 -m pip --version
+python3 -m pip --version
 
 # pip setuptools wheel help
-python2 -m pip --help > ./Temp/help/python_pip_help.txt
-## python2 -m setuptools --help > ./Temp/help/python_setuptools_help.txt
-python2 -m setup.py --help-commands > ./Temp/help/python_setuptools_help.txt
-python2 -m wheel --help > ./Temp/help/python_wheel_help.txt
+python2 -m pip --help > ./Temp/help/python2_pip_help.txt
+python3 -m pip --help > ./Temp/help/python3_pip_help.txt
+## python2 -m setuptools --help > ./Temp/help/python2_setuptools_help.txt
+## python3 -m setuptools --help > ./Temp/help/python3_setuptools_help.txt
+python2 -m setup.py --help-commands > ./Temp/help/python2_setuptools_help.txt
+python3 -m setup.py --help-commands > ./Temp/help/python3_setuptools_help.txt
+python2 -m wheel --help > ./Temp/help/python2_wheel_help.txt
+python3 -m wheel --help > ./Temp/help/python3_wheel_help.txt
 ```
 
 #### 4.2.1 pip freeze list
 
 ```bash
 # pip freeze
-python2 -m pip freeze > ./Temp/python_pip_freeze.txt
-python2 -m pip list > ./Temp/python_pip_list.txt
+python2 -m pip freeze > ./Temp/python2_pip_freeze.txt
+python3 -m pip freeze > ./Temp/python3_pip_freeze.txt
+python2 -m pip list > ./Temp/python2_pip_list.txt
+python3 -m pip list > ./Temp/python3_pip_list.txt
 ```
 
 #### 4.2.2 pip cache
 
 ```bash
 # pip cache list
-python2 -m pip cache list > ./out/dist/pip_cache_list.txt
-python3 -m pip cache list > ./out/dist/pip_cache_list.txt
+python2 -m pip cache list > ./out/dist/pip2_cache_list.txt
+python3 -m pip cache list > ./out/dist/pip3_cache_list.txt
 # pip no cache install
 python2 -m pip --no-cache-dir install com.dvsnier.*
 python3 -m pip --no-cache-dir install com.dvsnier.*
@@ -250,8 +259,8 @@ python3 -m build > ./out/dist/build.txt
 
 ```bash
 # setup sdist
-python2 setup.py sdist > ./out/dist/setup_sdist.txt
-python3 setup.py sdist > ./out/dist/setup_sdist.txt
+python2 setup.py sdist > ./out/dist/setup2_sdist.txt
+python3 setup.py sdist > ./out/dist/setup3_sdist.txt
 
 python2 setup.py bdist_wheel --universal
 python3 setup.py bdist_wheel --universal
@@ -265,8 +274,10 @@ python3 setup.py bdist_wheel
 ```bash
 # virtualenv
 python2 -m virtualenv --version
+python3 -m virtualenv --version
 # virtualenv help
-python2 -m virtualenv --help > ./Temp/help/python_virtualenv_help.txt
+python2 -m virtualenv --help > ./Temp/help/python2_virtualenv_help.txt
+python3 -m virtualenv --help > ./Temp/help/python3_virtualenv_help.txt
 ```
 
 ### 4.4 tox tox-travis version
@@ -275,9 +286,13 @@ python2 -m virtualenv --help > ./Temp/help/python_virtualenv_help.txt
 # tox
 python2 -m tox --version
 # python2 -m tox-travis --version
+python3 -m tox --version
+# python3 -m tox-travis --version
 # tox tox-travis help
-python2 -m tox --help > ./Temp/help/python_tox_help.txt
-# python2 -m tox-travis --help > ./Temp/help/python_tox_travis_help.txt
+python2 -m tox --help > ./Temp/help/python2_tox_help.txt
+# python2 -m tox-travis --help > ./Temp/help/python2_tox_travis_help.txt
+python3 -m tox --help > ./Temp/help/python3_tox_help.txt
+# python3 -m tox-travis --help > ./Temp/help/python3_tox_travis_help.txt
 ```
 
 如若快捷生成脚本,参考如下命令:
@@ -297,8 +312,10 @@ tox
 ```bash
 # twine
 python2 -m twine --version
+python3 -m twine --version
 # twine help
-python2 -m twine --help > ./Temp/help/python_twine_help.txt
+python2 -m twine --help > ./Temp/help/python2_twine_help.txt
+python3 -m twine --help > ./Temp/help/python3_twine_help.txt
 
 # check python check and upload dist format
 twine check dist/*
@@ -489,8 +506,8 @@ name = com.dvsnier.xxx
 version = 0.0.1.dev1
 author = dvsnier
 author_email = dovsnier@qq.com
-description = this is dvsnier directory.
-long_description = file: ./doc/description/directory/README.md
+description = this is dvsnier xxx.
+long_description = file: ./doc/description/xxx/README.md
 long_description_content_type = text/markdown
 keywords = xxx, development
 url = https://github.com/Alinvor/Python-DeMo
@@ -511,7 +528,6 @@ classifiers =
     Programming Language :: Python :: 3.8
     Programming Language :: Python :: 3.9
     License :: OSI Approved :: MIT License
-    Operating System :: OS Independent
 
 python_requires =
     >=2.7
@@ -577,10 +593,11 @@ def read_text(file_name):
 #
 # the repaired your home name
 #
-PROJECT_PREFIX = '/Users/.../Python-DeMo/'
-project = PROJECT_PREFIX
+# PROJECT_PREFIX = '/Users/.../Python-DeMo/'
+# project = PROJECT_PREFIX
+project = os.getenv('base_project_prefix')
 print(project)
-PROJECT_DIRECTORY = 'directory'  # project directory
+PROJECT_DIRECTORY = 'xxx'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
 README_ROOT_DIRECTORY = os.path.join(project, 'doc/description')
 README_PROJECT_DIRECTORY = os.path.join(README_ROOT_DIRECTORY, PROJECT_DIRECTORY)
@@ -615,7 +632,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.xxx'  # Required
 DVSNIER_VERSION = '0.0.1.dev1'  # Required
-DVSNIER_DESCRIPTOIN = 'this is dvsnier directory.'  # Optional
+DVSNIER_DESCRIPTOIN = 'this is dvsnier xxx.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
 DVSNIER_LONG_DESCRIPTION_CONTENT_TYPE = 'text/markdown'  # Optional
@@ -633,6 +650,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     # Indicate who your project is intended for
     # 'Intended Audience :: Developers',
     # 'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries',
 
     # Pick your license as you wish
     'License :: OSI Approved :: MIT License',
@@ -644,7 +662,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     # 'Programming Language :: Python :: 3 :: Only',
-    'Operating System :: OS Independent'
+    # 'Operating System :: OS Independent'
 ]
 DVSNIER_KEYWORDS = 'xxx, development'  # Optional
 DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
