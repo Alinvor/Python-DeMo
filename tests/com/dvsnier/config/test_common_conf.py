@@ -30,9 +30,9 @@ class Test_Common_Conf(unittest.TestCase):
         # INFO = 20
         # DEBUG = 10
         # NOTSET = 0
-        # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.DEBUG}
         # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.ERROR}
         # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.INFO}
+        # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.DEBUG}
         logging_conf(kwargs)
         logging.critical("the test test_logging_conf is succeed.")
         logging.error("the test test_logging_conf is succeed.")
