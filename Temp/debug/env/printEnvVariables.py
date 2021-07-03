@@ -4,7 +4,7 @@
 import os
 import json
 
-values = json.dumps(dict(os.environ))
+values = json.dumps(dict(os.environ), indent=4)
 # print(values)
 print('ref: ./Temp/debug/env/printEnvVariables.json')
 with open('./Temp/debug/env/printEnvVariables.json', 'w') as file:
