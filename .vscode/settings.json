@@ -30,21 +30,22 @@
     "python.analysis.completeFunctionParens": true,
     // "python.autoComplete.addBrackets": false,
     // "python.analysis.completeFunctionParens": false,
-    "python.autoComplete.extraPaths": [
-        "./src",
-        "./mock",
-        "./tests",
-        // darwin
-        "./venv2/bin",
-        "./venv2/lib/python2.7/site-packages",
-        "./venv/bin",
-        "./venv/lib/python3.7/site-packages",
-        // win32
-        "./venv2/Scripts",
-        "./venv2/Lib/site-packages",
-        "./venv/Scripts",
-        "./venv/Lib/site-packages",
-    ],
+    // https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance#settings-and-customization
+    // "python.autoComplete.extraPaths": [
+    //     "./src",
+    //     "./mock",
+    //     "./tests",
+    //     // darwin
+    //     "./venv2/bin",
+    //     "./venv2/lib/python2.7/site-packages",
+    //     "./venv/bin",
+    //     "./venv/lib/python3.7/site-packages",
+    //     // win32
+    //     "./venv2/Scripts",
+    //     "./venv2/Lib/site-packages",
+    //     "./venv/Scripts",
+    //     "./venv/Lib/site-packages",
+    // ],
     // "python.autoUpdateLanguageServer": true,
     // "python.defaultInterpreterPath": "${workspaceFolder}/venv2/bin/python",
     // "python.defaultInterpreterPath": "venv2/bin/python",
