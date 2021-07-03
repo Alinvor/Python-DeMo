@@ -6,6 +6,7 @@ import os
 import sys
 
 obj = {}
+obj["base_project_prefix"] = os.getenv('base_project_prefix')
 obj["versionInfo"] = tuple(sys.version_info)
 obj["sysModules"] = {}
 for (k, v) in sys.modules.items():
