@@ -593,9 +593,9 @@ def read_text(file_name):
 #
 # the repaired your home name
 #
-# PROJECT_PREFIX = '/Users/.../Python-DeMo/'
-# project = PROJECT_PREFIX
-project = os.getenv('base_project_prefix')
+project = os.getenv('BASE_PROJECT_PREFIX')
+if project is None:
+    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
 print(project)
 PROJECT_DIRECTORY = 'xxx'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
