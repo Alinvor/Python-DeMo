@@ -3,7 +3,7 @@
 import logging
 import unittest
 
-from com.dvsnier.config.common_config import config
+from com.dvsnier.config.journal.common_config import config
 
 
 class Test_Common_Config(unittest.TestCase):
