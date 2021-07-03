@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import logging
 import unittest
 
 from com.dvsnier.config.common_conf import logging_conf
@@ -33,11 +34,11 @@ class Test_Common_Conf(unittest.TestCase):
         # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.ERROR}
         # kwargs = {'output_dir_name': 'log', 'file_name': 'log', 'level': logging.INFO}
         logging_conf(kwargs)
-        # logging.critical("the test test_logging_conf is succeed.")
-        # logging.error("the test test_logging_conf is succeed.")
-        # logging.warning("the test test_logging_conf is succeed.")
-        # logging.info("the test test_logging_conf is succeed.")
-        # logging.debug("the test test_logging_conf is succeed.")
+        logging.critical("the test test_logging_conf is succeed.")
+        logging.error("the test test_logging_conf is succeed.")
+        logging.warning("the test test_logging_conf is succeed.")
+        logging.info("the test test_logging_conf is succeed.")
+        logging.debug("the test test_logging_conf is succeed.")
         pass
 
     def tearDown(self):

@@ -10,9 +10,9 @@ def config(kwargs):
         the logging config info:
             config(**kwargs={output_dir_name=\' \', file_name=\' \', level=logging.ERROR})
     '''
-    if kwargs.get('output_dir_name') is None or len(kwargs.get('output_dir_name')) == 0:
+    if kwargs.get('output_dir_name') is None or len(kwargs.get('output_dir_name').strip()) == 0:
         raise KeyError('the current kwargs[output_dir_name] is empty.')
-    if kwargs.get('file_name') is None or len(kwargs.get('file_name')) == 0:
+    if kwargs.get('file_name') is None or len(kwargs.get('file_name').strip()) == 0:
         raise KeyError('the current kwargs[file_name] is empty.')
     if kwargs.get('level') is not None and kwargs.get('level') < 0:
         raise KeyError('the current kwargs[level] is invalid.')
