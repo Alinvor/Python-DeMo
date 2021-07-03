@@ -17,6 +17,7 @@ obj["sysPath"] = sys.path
 obj["sysPlatform"] = sys.platform
 obj["is64Bit"] = sys.maxsize > 2**32
 obj["PWD"] = os.environ.get('PWD')
+obj["PYTHONPATH"] = os.environ.get('PYTHONPATH')
 obj["VIRTUAL_ENV"] = os.environ.get('VIRTUAL_ENV')
 
 values = json.dumps(obj, indent=4)
