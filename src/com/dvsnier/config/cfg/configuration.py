@@ -17,7 +17,7 @@ class Configuration(IConf, object):
     def obtain_config(self, config_file):
         """the read xxx.cfg"""
         if not config_file or not os.path.exists(config_file):
-            raise FileNotFoundError('the current config path is not found.')
+            raise IOError('the current config path is not found.')
         logging.info('the start parsing the configuration file that is {}'.format(os.path.abspath(config_file)))
         with open(config_file) as file_handler:
             lines = file_handler.readlines()
