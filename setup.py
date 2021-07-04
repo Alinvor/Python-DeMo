@@ -114,7 +114,7 @@ DVSNIER_INSTALL_REQUIRES = [  # Optional
     # 'twine==1.15.0',
     'com.dvsnier.directory>=0.0.1.dev3',
     'configparser',
-    'logging',
+    # 'logging',
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
