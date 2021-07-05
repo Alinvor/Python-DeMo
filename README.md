@@ -45,7 +45,13 @@
     - [5.3.1 注册账号](#531-注册账号)
     - [5.3.2 检查软件包](#532-检查软件包)
     - [5.3.3 上传软件包](#533-上传软件包)
-- [六. 参考](#六-参考)
+- [六. WiKi](#六-wiki)
+  - [6.1 规约与守则](#61-规约与守则)
+  - [6.2 文档与源码](#62-文档与源码)
+  - [6.3 配置与模板](#63-配置与模板)
+  - [6.4 调试与构建](#64-调试与构建)
+  - [6.5 日志与清理](#65-日志与清理)
+- [七. 参考](#七-参考)
 
 ## 一. 构建`venv`环境
 
@@ -948,7 +954,46 @@ twine check dist/*
 twine upload dist/*
 ```
 
-## 六. 参考
+## 六. WiKi
+
+### 6.1 规约与守则
+
+1. [【Contract: 规约守则】](./doc/project_help/the_global_rules.md)
+
+### 6.2 文档与源码
+
+1. [【Document: Python 环境查看函数】](./doc/README.md)
+2. [【Source: Recommended Source Websites】](./doc/SOURCE.md)
+
+### 6.3 配置与模板
+
+1. [【Config: The `LICENSE` File】](./LICENSE.txt)
+2. [【Config: The `MANIFEST` File】](./MANIFEST.in)
+3. [【Config: The `pyproject` File】](./pyproject.toml)
+4. [【Config: The `requirements` File】](./requirements.txt)
+5. [【Config: The `setup` File】](./setup.cfg)
+6. [【Config: The `tox` File】](./tox.ini)
+7. [【Template: The `__init__` File】](./template/__init__.py)
+8. [【Template: The `__init__with_pkgutil` File】](./template/__init__with_pkgutil.py)
+9. [【Template: The `template` File】](./template/template.py)
+10. [【Template: The `template_class` File】](./template/template_class.py)
+11. [【Template: The `test_template` File】](./template/test_template.py)
+
+### 6.4 调试与构建
+
+1. [【Debug: Bash_or_Ps1】](./Temp/bash/bash_or_ps1.md)
+2. [【Debug: Python Command】](./Temp/bash/python_command.md)
+3. [【Debug: Environment Variable Information(The Necessities)】](./Temp/debug/env/interpreterInfo.py)
+4. [【Debug: Environment Variable Information(An Generals)】](./Temp/debug/env/interpreterInfo.py)
+5. [【Build: The `Requirements` Text】](./Temp/archives/material/requirements.txt)
+6. [【Build: The `Setup` Script】](./Temp/archives/material/setup.py)
+
+### 6.5 日志与清理
+
+1. [【Clean: darwin】](./.rmcache.bash)
+2. [【Clean: win】](./.rmcache.ps1)
+
+## 七. 参考
 
 1. https://packaging.python.org/tutorials/packaging-projects/
 2. https://packaging.python.org/guides/distributing-packages-using-setuptools/
