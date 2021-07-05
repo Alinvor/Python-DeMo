@@ -33,9 +33,13 @@
 > > - `运行目录`: 当前进程的`动态执行` 驻留载体;
 
 ```bash
-# Python
+# darwin Python
 # export PYTHONPATH=.
 export BASE_PROJECT_PREFIX="/Users/.../Python-DeMo"
+
+# win Python
+# PYTHONPATH=.
+BASE_PROJECT_PREFIX="D:\\...\\Python-DeMo"
 ```
 
 ### 3.2. VSCode PYTHONPATH
@@ -76,7 +80,7 @@ VSCode 环境变量指定的默认配置选项为:
 PYTHONPATH=/Users/.../Python-DeMo:/Users/.../Python-DeMo/tests:${PYTHONPATH}
 
 # win32
-PYTHONPATH=/Users/.../Python-DeMo;/Users/.../Python-DeMo/tests;%PYTHONPATH%
+PYTHONPATH=D:\\WorkSpace\\...\\Python-DeMo;D:\\WorkSpace\\...\\Python-DeMo\\tests;%PYTHONPATH%
 ```
 
 ### 3.3. inline import
