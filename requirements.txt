@@ -1,4 +1,3 @@
 com.dvsnier.directory
 configparser
 Deprecated
-# logging
