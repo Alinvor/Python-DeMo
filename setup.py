@@ -107,9 +107,7 @@ DVSNIER_PACKAGES = find_packages(where='src')  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-    'com.dvsnier.directory>=0.0.1.dev3',
-    'configparser',
-    # 'logging',
+
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
