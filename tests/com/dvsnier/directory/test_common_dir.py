@@ -10,9 +10,10 @@ class Test_Common_Dir(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         print("...the set up...")
+        print('')
 
     def setUp(self):
-        return super(Test_Common_Dir, self).setUp()
+        super(Test_Common_Dir, self).setUp()
 
     def test_generate_complex_file_name(self):
         'the test generate complex file name'
@@ -20,17 +21,14 @@ class Test_Common_Dir(unittest.TestCase):
         file_name = 'test_name'
         output = generate_complex_file_name(dir_name, file_name)
         print("\nthe test generate_complex_file_name(%s) is succeed." % output)
-        self.assertIsNotNone(output,
-                             'test_generate_complex_file_name is error.')
+        self.assertIsNotNone(output, 'test_generate_complex_file_name is error.')
 
     def test_generate_fmt_file_name(self):
         'the test generate fmt file name'
         dir_name = 'https'
         file_name = 'test_name'
         # output = generate_fmt_file_name(dir_name, file_name)
-        output = generate_fmt_file_name(dir_name,
-                                        file_name,
-                                        fmt='%Y%m%d_%H%M%S.%f')
+        output = generate_fmt_file_name(dir_name, file_name, fmt='%Y%m%d_%H%M%S.%f')
         print("\nthe test generate_fmt_file_name(%s) is succeed." % output)
         self.assertIsNotNone(output, 'generate_fmt_file_name is error.')
 
@@ -47,8 +45,7 @@ class Test_Common_Dir(unittest.TestCase):
         dir_name = 'out/https_2'
         file_name = 'test_name'
         output = generate_file_name_only(dir_name, file_name)
-        print("\nthe test test_generate_file_name_only(%s) is succeed." %
-              output)
+        print("\nthe test test_generate_file_name_only(%s) is succeed." % output)
         self.assertIsNotNone(output, 'test_generate_file_name_only is error.')
 
     def test_generate_complex_or_fmt_file_name(self):
@@ -66,11 +63,8 @@ class Test_Common_Dir(unittest.TestCase):
         # file_name = '.test_name.txt.log.'
         # file_name = 'test.name.txt.log'
         output = generate_complex_or_fmt_file_name(dir_name, file_name)
-        print(
-            "\nthe test test_generate_complex_or_fmt_file_name(%s) is succeed."
-            % output)
-        self.assertIsNotNone(
-            output, 'test_generate_complex_or_fmt_file_name is error.')
+        print("\nthe test test_generate_complex_or_fmt_file_name(%s) is succeed." % output)
+        self.assertIsNotNone(output, 'test_generate_complex_or_fmt_file_name is error.')
 
     def test_mk_dir(self):
         'the test mk dir'
@@ -94,12 +88,15 @@ class Test_Common_Dir(unittest.TestCase):
         self.assertIsNotNone(output, 'test_mk_children_dir is error.')
 
     def tearDown(self):
-        return super(Test_Common_Dir, self).tearDown()
+        super(Test_Common_Dir, self).tearDown()
 
     @classmethod
     def tearDownClass(cls):
+        print('')
         print("...the tear down...")
 
 
 if __name__ == '__main__':
-    unittest.main()
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test_Common_Dir)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.main()
