@@ -1,9 +1,8 @@
 # -*- coding:utf-8 -*-
 
 import json
-import unittest
-
 import logging
+import unittest
 
 from com.dvsnier.config.cfg.configuration import Configuration
 from com.dvsnier.config.journal.common_config import config
@@ -25,8 +24,10 @@ class Test_Configuration(unittest.TestCase):
     def test_0_configuration(self):
         cfg = self._config.obtain_config('./conf/config.test.cfg')
         self.assertIsNotNone(cfg, 'test_0_configuration is error.')
+        # logging.debug('the current key({}): value({})'.format('version_info', cfg['version_info']))
+        # if you use the above method directly, it is easy to cause the program to crash. Therefore, compatibility is made and default value adaptation is provided
+        logging.debug('the current key({}): value({})'.format('version_info', cfg.get('version_info', None)))
         logging.warning(json.dumps(cfg, indent=4))
-        logging.debug('the current key({}): value({})'.format('version_info', cfg['version_info']))
 
     def tearDown(self):
         super(Test_Configuration, self).tearDown()
