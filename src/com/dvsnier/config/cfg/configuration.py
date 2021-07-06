@@ -18,6 +18,7 @@ class Configuration(IConf, object):
 
         - str
         - number
+        - boolean
         - list
 
         The standard writing method of each data type is given below:
@@ -25,7 +26,7 @@ class Configuration(IConf, object):
         ### str types
 
             At present, the system supports three formats by default:
-            - `key = value` # The first is recommendation
+            - `key = value` # The first is recommendation pattern
             - `key = 'value'`
             - `key = "value"`
 
@@ -33,17 +34,29 @@ class Configuration(IConf, object):
 
             - `key = number`
 
+        ### boolean types
+
+            - `key = true` # The first is recommendation pattern
+            - `key = True`
+            - `key = false` # The first is recommendation pattern
+            - `key = False`
+
         ### list types
 
             At present, it only supports the case that the content array is of the same type constraint, and the default is `str` generic:
 
             - `key = ['value0', 'value1', ...]`
             - `key = ['value0', "value1", ...]`
-            - `key = ["value0", "value1", ...]`
+            - `key = ["value0", "value1", ...]` # The first is recommendation pattern
+
+        ## Warning
+            - All support granularity, only support when `single line mode`, do not support multi line mode.
+            - Illegal data will be ignored.
     '''
 
     __pattern_with_list = re.compile(r'(?<=\[).+?(?=\])')
     __pattern_with_number_element = re.compile(r'\b\d+?\b')
+    __pattern_with_boolean_element = re.compile(r'\btrue|True|false|False\b')
     __pattern_with_element = re.compile(r'((?<=\')[^,\b]+?(?=\'))|((?<=\")[^,\b]+?(?=\"))')
     __pattern_with_element_strip = re.compile(r'(?<=\').+?(?=\')|(?<=\").+?(?=\")')
     _config = {}
@@ -75,10 +88,13 @@ class Configuration(IConf, object):
                     if suspicious_value:
                         match_with_immature_list = self.__pattern_with_list.search(suspicious_value)
                         match_with_immature_digital = self.__pattern_with_number_element.search(suspicious_value)
+                        match_with_immature_boolean = self.__pattern_with_boolean_element.search(suspicious_value)
                         if match_with_immature_list:  # list
                             self.__resolve_with_list(match_with_immature_list, key, suspicious_value)
                         elif match_with_immature_digital:  # digital
                             self.__resolve_with_digital(match_with_immature_digital, key, suspicious_value)
+                        elif match_with_immature_boolean:  # boolean
+                            self.__resolve_with_boolean(match_with_immature_boolean, key, suspicious_value)
                         else:  # str
                             self.__resolve_with_str(key, suspicious_value)
                     else:
@@ -113,6 +129,20 @@ class Configuration(IConf, object):
         try:
             if element_value and suspicious_value == element_value and isinstance(int(element_value), Number):
                 self._config[key] = int(element_value)
+            else:
+                self.__resolve_with_str(key, suspicious_value)
+        except ValueError:
+            self.__resolve_with_str(key, suspicious_value)
+
+    def __resolve_with_boolean(self, match_with_immature_boolean, key, suspicious_value):
+        'the resolve boolean data structure'
+        element_value = match_with_immature_boolean.group()
+        try:
+            if element_value and suspicious_value == element_value:
+                if 'true' == element_value or 'True' == element_value:
+                    self._config[key] = bool(1)
+                else:
+                    self._config[key] = bool(0)
             else:
                 self.__resolve_with_str(key, suspicious_value)
         except ValueError:
