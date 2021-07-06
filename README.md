@@ -45,7 +45,13 @@
     - [5.3.1 注册账号](#531-注册账号)
     - [5.3.2 检查软件包](#532-检查软件包)
     - [5.3.3 上传软件包](#533-上传软件包)
-- [六. 参考](#六-参考)
+- [六. WiKi](#六-wiki)
+  - [6.1 规约与守则](#61-规约与守则)
+  - [6.2 文档与源码](#62-文档与源码)
+  - [6.3 配置与模板](#63-配置与模板)
+  - [6.4 调试与构建](#64-调试与构建)
+  - [6.5 日志与清理](#65-日志与清理)
+- [七. 参考](#七-参考)
 
 ## 一. 构建`venv`环境
 
@@ -189,8 +195,10 @@ source ./venv/bin/activate
 ```bash
 # python
 python2 --version
+python3 --version
 # python help
-python2 --help > ./Temp/help/python_help.txt
+python2 --help > ./Temp/help/python2_help.txt
+python3 --help > ./Temp/help/python3_help.txt
 ```
 
 ### 4.2 pip setuptools wheel version
@@ -198,28 +206,35 @@ python2 --help > ./Temp/help/python_help.txt
 ```bash
 # pip
 python2 -m pip --version
+python3 -m pip --version
 
 # pip setuptools wheel help
-python2 -m pip --help > ./Temp/help/python_pip_help.txt
-## python2 -m setuptools --help > ./Temp/help/python_setuptools_help.txt
-python2 -m setup.py --help-commands > ./Temp/help/python_setuptools_help.txt
-python2 -m wheel --help > ./Temp/help/python_wheel_help.txt
+python2 -m pip --help > ./Temp/help/python2_pip_help.txt
+python3 -m pip --help > ./Temp/help/python3_pip_help.txt
+## python2 -m setuptools --help > ./Temp/help/python2_setuptools_help.txt
+## python3 -m setuptools --help > ./Temp/help/python3_setuptools_help.txt
+python2 -m setup.py --help-commands > ./Temp/help/python2_setuptools_help.txt
+python3 -m setup.py --help-commands > ./Temp/help/python3_setuptools_help.txt
+python2 -m wheel --help > ./Temp/help/python2_wheel_help.txt
+python3 -m wheel --help > ./Temp/help/python3_wheel_help.txt
 ```
 
 #### 4.2.1 pip freeze list
 
 ```bash
 # pip freeze
-python2 -m pip freeze > ./Temp/python_pip_freeze.txt
-python2 -m pip list > ./Temp/python_pip_list.txt
+python2 -m pip freeze > ./Temp/python2_pip_freeze.txt
+python3 -m pip freeze > ./Temp/python3_pip_freeze.txt
+python2 -m pip list > ./Temp/python2_pip_list.txt
+python3 -m pip list > ./Temp/python3_pip_list.txt
 ```
 
 #### 4.2.2 pip cache
 
 ```bash
 # pip cache list
-python2 -m pip cache list > ./out/dist/pip_cache_list.txt
-python3 -m pip cache list > ./out/dist/pip_cache_list.txt
+python2 -m pip cache list > ./out/dist/pip2_cache_list.txt
+python3 -m pip cache list > ./out/dist/pip3_cache_list.txt
 # pip no cache install
 python2 -m pip --no-cache-dir install com.dvsnier.*
 python3 -m pip --no-cache-dir install com.dvsnier.*
@@ -250,8 +265,8 @@ python3 -m build > ./out/dist/build.txt
 
 ```bash
 # setup sdist
-python2 setup.py sdist > ./out/dist/setup_sdist.txt
-python3 setup.py sdist > ./out/dist/setup_sdist.txt
+python2 setup.py sdist > ./out/dist/setup2_sdist.txt
+python3 setup.py sdist > ./out/dist/setup3_sdist.txt
 
 python2 setup.py bdist_wheel --universal
 python3 setup.py bdist_wheel --universal
@@ -265,8 +280,10 @@ python3 setup.py bdist_wheel
 ```bash
 # virtualenv
 python2 -m virtualenv --version
+python3 -m virtualenv --version
 # virtualenv help
-python2 -m virtualenv --help > ./Temp/help/python_virtualenv_help.txt
+python2 -m virtualenv --help > ./Temp/help/python2_virtualenv_help.txt
+python3 -m virtualenv --help > ./Temp/help/python3_virtualenv_help.txt
 ```
 
 ### 4.4 tox tox-travis version
@@ -275,9 +292,13 @@ python2 -m virtualenv --help > ./Temp/help/python_virtualenv_help.txt
 # tox
 python2 -m tox --version
 # python2 -m tox-travis --version
+python3 -m tox --version
+# python3 -m tox-travis --version
 # tox tox-travis help
-python2 -m tox --help > ./Temp/help/python_tox_help.txt
-# python2 -m tox-travis --help > ./Temp/help/python_tox_travis_help.txt
+python2 -m tox --help > ./Temp/help/python2_tox_help.txt
+# python2 -m tox-travis --help > ./Temp/help/python2_tox_travis_help.txt
+python3 -m tox --help > ./Temp/help/python3_tox_help.txt
+# python3 -m tox-travis --help > ./Temp/help/python3_tox_travis_help.txt
 ```
 
 如若快捷生成脚本,参考如下命令:
@@ -297,8 +318,10 @@ tox
 ```bash
 # twine
 python2 -m twine --version
+python3 -m twine --version
 # twine help
-python2 -m twine --help > ./Temp/help/python_twine_help.txt
+python2 -m twine --help > ./Temp/help/python2_twine_help.txt
+python3 -m twine --help > ./Temp/help/python3_twine_help.txt
 
 # check python check and upload dist format
 twine check dist/*
@@ -489,8 +512,8 @@ name = com.dvsnier.xxx
 version = 0.0.1.dev1
 author = dvsnier
 author_email = dovsnier@qq.com
-description = this is dvsnier directory.
-long_description = file: ./doc/description/directory/README.md
+description = this is dvsnier xxx.
+long_description = file: ./doc/description/xxx/README.md
 long_description_content_type = text/markdown
 keywords = xxx, development
 url = https://github.com/Alinvor/Python-DeMo
@@ -511,7 +534,6 @@ classifiers =
     Programming Language :: Python :: 3.8
     Programming Language :: Python :: 3.9
     License :: OSI Approved :: MIT License
-    Operating System :: OS Independent
 
 python_requires =
     >=2.7
@@ -577,10 +599,11 @@ def read_text(file_name):
 #
 # the repaired your home name
 #
-PROJECT_PREFIX = '/Users/.../Python-DeMo/'
-project = PROJECT_PREFIX
+project = os.getenv('BASE_PROJECT_PREFIX')
+if project is None:
+    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
 print(project)
-PROJECT_DIRECTORY = 'directory'  # project directory
+PROJECT_DIRECTORY = 'xxx'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
 README_ROOT_DIRECTORY = os.path.join(project, 'doc/description')
 README_PROJECT_DIRECTORY = os.path.join(README_ROOT_DIRECTORY, PROJECT_DIRECTORY)
@@ -615,7 +638,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.xxx'  # Required
 DVSNIER_VERSION = '0.0.1.dev1'  # Required
-DVSNIER_DESCRIPTOIN = 'this is dvsnier directory.'  # Optional
+DVSNIER_DESCRIPTOIN = 'this is dvsnier xxx.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
 DVSNIER_LONG_DESCRIPTION_CONTENT_TYPE = 'text/markdown'  # Optional
@@ -633,6 +656,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     # Indicate who your project is intended for
     # 'Intended Audience :: Developers',
     # 'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries',
 
     # Pick your license as you wish
     'License :: OSI Approved :: MIT License',
@@ -644,7 +668,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     # 'Programming Language :: Python :: 3 :: Only',
-    'Operating System :: OS Independent'
+    # 'Operating System :: OS Independent'
 ]
 DVSNIER_KEYWORDS = 'xxx, development'  # Optional
 DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
@@ -930,7 +954,46 @@ twine check dist/*
 twine upload dist/*
 ```
 
-## 六. 参考
+## 六. WiKi
+
+### 6.1 规约与守则
+
+1. [【Contract: 规约守则】](./doc/project_help/the_global_rules.md)
+
+### 6.2 文档与源码
+
+1. [【Document: Python 环境查看函数】](./doc/README.md)
+2. [【Source: Recommended Source Websites】](./doc/SOURCE.md)
+
+### 6.3 配置与模板
+
+1. [【Config: The `LICENSE` File】](./LICENSE.txt)
+2. [【Config: The `MANIFEST` File】](./MANIFEST.in)
+3. [【Config: The `pyproject` File】](./pyproject.toml)
+4. [【Config: The `requirements` File】](./requirements.txt)
+5. [【Config: The `setup` File】](./setup.cfg)
+6. [【Config: The `tox` File】](./tox.ini)
+7. [【Template: The `__init__` File】](./template/__init__.py)
+8. [【Template: The `__init__with_pkgutil` File】](./template/__init__with_pkgutil.py)
+9. [【Template: The `template` File】](./template/template.py)
+10. [【Template: The `template_class` File】](./template/template_class.py)
+11. [【Template: The `test_template` File】](./template/test_template.py)
+
+### 6.4 调试与构建
+
+1. [【Debug: Bash_or_Ps1】](./Temp/bash/bash_or_ps1.md)
+2. [【Debug: Python Command】](./Temp/bash/python_command.md)
+3. [【Debug: Environment Variable Information(The Necessities)】](./Temp/debug/env/interpreterInfo.py)
+4. [【Debug: Environment Variable Information(An Generals)】](./Temp/debug/env/interpreterInfo.py)
+5. [【Build: The `Requirements` Text】](./Temp/archives/material/requirements.txt)
+6. [【Build: The `Setup` Script】](./Temp/archives/material/setup.py)
+
+### 6.5 日志与清理
+
+1. [【Clean: darwin】](./.rmcache.bash)
+2. [【Clean: win】](./.rmcache.ps1)
+
+## 七. 参考
 
 1. https://packaging.python.org/tutorials/packaging-projects/
 2. https://packaging.python.org/guides/distributing-packages-using-setuptools/

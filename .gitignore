@@ -108,7 +108,7 @@ venv.bak/
 
 # vscode files
 .vscode/
-.vscode/settings.json
+# .vscode/settings.json
 
 # IDEA files
 .idea/
