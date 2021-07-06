@@ -2,19 +2,20 @@
 
 import unittest
 
-from com.dvsnier.directory.common_directory import CommonDirectory
+from com.dvsnier.directory.base_file import BaseFile
 
 
-class Test_Common_Directory(unittest.TestCase):
+class Test_Base_File(unittest.TestCase):
     ''' the test common dir '''
     @classmethod
     def setUpClass(cls):
         print("...the set up...")
         print('')
-        cls.directory = CommonDirectory()
+        # cls.directory = BaseFile(strategy_mode=True)
+        cls.directory = BaseFile()
 
     def setUp(self):
-        super(Test_Common_Directory, self).setUp()
+        super(Test_Base_File, self).setUp()
 
     def test_generate_complex_file_name(self):
         'the test generate complex file name'
@@ -89,7 +90,7 @@ class Test_Common_Directory(unittest.TestCase):
         self.assertIsNotNone(output, 'test_mk_children_dir is error.')
 
     def tearDown(self):
-        super(Test_Common_Directory, self).tearDown()
+        super(Test_Base_File, self).tearDown()
 
     @classmethod
     def tearDownClass(cls):
@@ -98,6 +99,6 @@ class Test_Common_Directory(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(Test_Common_Directory)
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test_Base_File)
     unittest.TextTestRunner(verbosity=2).run(suite)
     # unittest.main()

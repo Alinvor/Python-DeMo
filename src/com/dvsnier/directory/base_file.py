@@ -7,10 +7,10 @@ import time
 from com.dvsnier.directory.abstract_directory import AbstractDirectory
 
 
-class CommonDirectory(AbstractDirectory, object):
-    '''the Common Directory class'''
-    def __init__(self):
-        super(CommonDirectory, self).__init__()
+class BaseFile(AbstractDirectory, object):
+    '''the Common Directory class that strict patterns are strongly recommended to constrain the determination of input path rules'''
+    def __init__(self, strategy_mode=False):
+        super(BaseFile, self).__init__(strategy_mode)
 
     def generate_complex_file_name(self, output_dir_name, file_name):
         'the generate complex file name'
