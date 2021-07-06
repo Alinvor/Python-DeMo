@@ -26,8 +26,9 @@ def read_text(file_name):
     return content
 
 
-PROJECT_PREFIX = '/Users/dovsnier/Documents/Work_Space_Python/Python-DeMo/'
-project = PROJECT_PREFIX
+project = os.getenv('BASE_PROJECT_PREFIX')
+if project is None:
+    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
 print(project)
 PROJECT_DIRECTORY = 'directory'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
@@ -82,6 +83,7 @@ DVSNIER_CLASSIFIERS = [  # Optional
     # Indicate who your project is intended for
     # 'Intended Audience :: Developers',
     # 'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries',
 
     # Pick your license as you wish
     'License :: OSI Approved :: MIT License',
@@ -93,9 +95,9 @@ DVSNIER_CLASSIFIERS = [  # Optional
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     # 'Programming Language :: Python :: 3 :: Only',
-    'Operating System :: OS Independent'
+    # 'Operating System :: OS Independent'
 ]
-DVSNIER_KEYWORDS = 'dir, development'  # Optional
+DVSNIER_KEYWORDS = 'directory, development'  # Optional
 DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
 # DVSNIER_PY_MODULES = ["xxx"]  # Required
 # DVSNIER_PACKAGES = find_packages(include=['xxx', 'xxx.*'])  # Required
@@ -103,11 +105,6 @@ DVSNIER_PACKAGES = find_packages(where='src')  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-    # 'discover==0.4.0',
-    # 'build==0.4.0',
-    # 'pathlib2==2.3.5',
-    # 'toml==0.10.2',
-    # 'twine==1.15.0',
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
