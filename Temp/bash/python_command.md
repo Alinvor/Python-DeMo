@@ -42,13 +42,21 @@ pip3 install -e .
 # pip list
 pip2 list > ./Temp/txt/python2_pip2_list.txt
 pip3 list > ./Temp/txt/python3_pip3_list.txt
-python2 -m pip2 list > ./Temp/txt/2021_python2_pip2_list.txt
-python3 -m pip3 list > ./Temp/txt/2021_python3_pip3_list.txt
+
+pip2 list > ./Temp/txt/2021_python2_pip2_list.txt
+pip3 list > ./Temp/txt/2021_python3_pip3_list.txt
+
+python2 -m pip list > ./Temp/txt/2021_python2_pip2_list.txt
+python3 -m pip list > ./Temp/txt/2021_python3_pip3_list.txt
 # pip freeze
 pip2 freeze > ./Temp/txt/python2_pip2_freeze.txt
 pip3 freeze > ./Temp/txt/python3_pip3_freeze.txt
-python2 -m pip2 freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
-python3 -m pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
+
+pip2 freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
+pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
+
+python2 -m pip freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
+python3 -m pip freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
 ```
 
 ### 2.3. pip install
@@ -60,15 +68,15 @@ python3 -m pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
 pip2 install -r ./requirements.txt
 pip3 install -r ./requirements.txt
 
-python2 -m pip2 install -r ./requirements.txt
-python3 -m pip3 install -r ./requirements.txt
+python2 -m pip install -r ./requirements.txt
+python3 -m pip install -r ./requirements.txt
 
 # the base chain component requirements
 pip2 install -r ./Temp/archives/material/requirements.txt
 pip3 install -r ./Temp/archives/material/requirements.txt
 
-python2 -m pip2 install -r ./Temp/archives/material/requirements.txt
-python3 -m pip3 install -r ./Temp/archives/material/requirements.txt
+python2 -m pip install -r ./Temp/archives/material/requirements.txt
+python3 -m pip install -r ./Temp/archives/material/requirements.txt
 ```
 
 #### 2.3.2. pip install xxx
