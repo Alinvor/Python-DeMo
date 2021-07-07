@@ -4,6 +4,8 @@
 find . -type f -name '*.pyc' -delete
 
 ## THE DELETE DIRECTORY
+# .tox/*
+find .tox -path "*" -delete
 # ./build/*
 find ./build -path "*" ! -name "build" -delete
 # ./src/com.dvsnier.*.egg-info
