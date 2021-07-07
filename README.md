@@ -233,8 +233,8 @@ python3 -m pip list > ./Temp/python3_pip_list.txt
 
 ```bash
 # pip cache list
-python2 -m pip cache list > ./out/dist/pip2_cache_list.txt
-python3 -m pip cache list > ./out/dist/pip3_cache_list.txt
+python2 -m pip cache list > ./out/dist/python2_pip2_cache_list.txt
+python3 -m pip cache list > ./out/dist/python3_pip3_cache_list.txt
 # pip no cache install
 python2 -m pip --no-cache-dir install com.dvsnier.*
 python3 -m pip --no-cache-dir install com.dvsnier.*
@@ -313,7 +313,8 @@ tox-quickstart
 tox
 
 # the recommend
-tox --result-json ./Temp/tox/tox_result.json
+tox --result-json ./Temp/tox/python2_tox_result.json
+tox --result-json ./Temp/tox/python3_tox_result.json
 ```
 
 ### 4.5 twine version
@@ -347,22 +348,29 @@ Python 软件包开发工程结构，如下所示:
     | --- doc
         --- ...
             --- README.md
+    | --- out
     | --- src
         --- com
             --- dvsnier
                 --- ...
-    | --- test
+    | --- Temp
+    | --- template
+    | --- tests
         --- com
             --- dvsnier
                 --- ...
     | --- venv
     | --- venv2
     | --- .editorconfig
+    | --- .env
     | --- .gitignore
+    | --- .rmcache.bash
+    | --- .rmcache.ps1
     | --- LICENSE.txt
     | --- MANIFEST.in
     | --- pyproject.toml
     | --- README.md
+    | --- requirements.txt
     | --- setup.cfg
     | --- tox.ini
 ```
@@ -371,17 +379,19 @@ Python 软件包开发工程结构，如下所示:
 
 首先检查是否安装如下依赖:
 
-1. pip
-2. flake8 (可选)
-3. virtualenv
-4. setuptools
-5. wheel
-6. discover
-7. tox
-8. toml (可选)
-9. tox-travis (可选)
-10. build
-11. twine
+1. build
+2. discover
+3. flake8 (可选)
+4. pip
+5. setuptools
+6. tox
+7. toml (可选)
+8. tox-travis (可选)
+9. twine
+10. unittest2
+11. virtualenv
+12. wheel
+
 
 如若没有，请使用`pip` 命令安装如下软件包:
 
@@ -389,30 +399,34 @@ Python 软件包开发工程结构，如下所示:
 # python2 pip version
 python2 -m pip --version
 
-python2 -m pip install flake8
-python2 -m pip install virtualenv
-python2 -m pip install setuptools
-python2 -m pip install wheel
+python2 -m pip install build
 python2 -m pip install discover
+python2 -m pip install flake8
+python2 -m pip install pip
+python2 -m pip install setuptools
 python2 -m pip install tox
 python2 -m pip install toml
 python2 -m pip install tox-travis
-python2 -m pip install build
 python2 -m pip install twine
+python2 -m pip install unittest2
+python2 -m pip install virtualenv
+python2 -m pip install wheel
 
 # python3 pip version
 python3 -m pip --version
 
-python3 -m pip install flake8
-python3 -m pip install virtualenv
-python3 -m pip install setuptools
-python3 -m pip install wheel
+python3 -m pip install build
 python3 -m pip install discover
+python3 -m pip install flake8
+python3 -m pip install pip
+python3 -m pip install setuptools
 python3 -m pip install tox
 python3 -m pip install toml
 python3 -m pip install tox-travis
-python3 -m pip install build
 python3 -m pip install twine
+python3 -m pip install unittest2
+python3 -m pip install virtualenv
+python3 -m pip install wheel
 ```
 
 其实一般安装有 `pip` 软件包的，一般都会有`setuptools` 和`wheel` 软件包附带安装;
@@ -457,6 +471,9 @@ include *.md
 
 # Include the license file
 include LICENSE.txt
+
+# # Include the requirements file
+include requirements.txt
 ```
 
 同上，模板一般都是固定结构，无需太范围改动;
@@ -473,7 +490,7 @@ include LICENSE.txt
 # For information see https://tox.readthedocs.io/en/latest/examples.html
 
 [tox]
-envlist = py27, py39
+envlist = py27, py38
 
 minversion = 3.23.1
 
@@ -485,20 +502,38 @@ isolated_build = true
 # install testing framework
 # ... or install anything else you might need here
 [testenv]
+passenv =
+    PYTHONPATH
 platform = linux: linux
            macos: darwin
            windows: win32
 ; alwayscopy = True
 allowlist_externals =
     /bin/bash
-changedir =
-    tests
+; changedir =
+;     tests
+#
+# https://tox.readthedocs.io/en/latest/config.html#conf-deps
+# https://tox.readthedocs.io/en/latest/example/basic.html#a-simple-tox-ini-default-environments
+#
 deps =
-    build
+    -rrequirements.txt
+    unittest2
+    flake8
+    virtualenv
+    setuptools
+    wheel
     discover
+    tox
+    toml
+    tox-travis
+    build
     twine
 commands =
-    discover
+    ; windows: python --version
+    ; macos,linux: python --version
+    discover -s ./tests -t .
+    ; unit2 discover []
     ; python -m unittest discover
 ```
 
@@ -533,10 +568,11 @@ platforms = any
 # Development Status :: 5 - Production/Stable
 classifiers =
     Development Status :: 3 - Alpha
+    Topic :: Software Development :: Libraries
+    License :: OSI Approved :: MIT License
     Programming Language :: Python :: 2.7
     Programming Language :: Python :: 3.8
     Programming Language :: Python :: 3.9
-    License :: OSI Approved :: MIT License
 
 python_requires =
     >=2.7
@@ -582,6 +618,7 @@ https://github.com/Alinvor/Python-DeMo
 """
 
 # Always prefer setuptools over distutils
+# from setuptools import setup, find_packages, find_namespace_packages
 from setuptools import setup, find_packages
 import os
 import sys
@@ -599,9 +636,8 @@ def read_text(file_name):
                 content += str(line).encode('utf-8')
     # print(content)
     return content
-#
-# the repaired your home name
-#
+
+
 project = os.getenv('BASE_PROJECT_PREFIX')
 if project is None:
     raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
@@ -640,7 +676,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.xxx'  # Required
-DVSNIER_VERSION = '0.0.1.dev1'  # Required
+DVSNIER_VERSION = '0.0.1.dev0'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier xxx.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
@@ -678,14 +714,11 @@ DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
 # DVSNIER_PY_MODULES = ["xxx"]  # Required
 # DVSNIER_PACKAGES = find_packages(include=['xxx', 'xxx.*'])  # Required
 DVSNIER_PACKAGES = find_packages(where='src')  # Required
+# DVSNIER_NAMESPACE_PACKAGES = find_namespace_packages(include=['com.*'])  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-    # 'discover==0.4.0',
-    # 'build==0.4.0',
-    # 'pathlib2==2.3.5',
-    # 'toml==0.10.2',
-    # 'twine==1.15.0',
+
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
@@ -815,6 +848,11 @@ setup(
     #
     packages=DVSNIER_PACKAGES,  # Required
 
+    #
+    # Only for Python 3.x and above
+    #
+    # namespace_packages=DVSNIER_NAMESPACE_PACKAGES, # Optional
+
     # If your project contains any single-file Python modules that aren’t part of
     # a package, set py_modules to a list of the names of the modules (minus the .py
     # extension) in order to make setuptools aware of them.
@@ -866,6 +904,14 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points=DVSNIER_ENTRY_POINTS,  # Optional
 
+    #
+    # 1. https://www.python.org/dev/peps/pep-0328/
+    # 2. https://setuptools.readthedocs.io/en/latest/userguide/package_discovery.html
+    # 3. https://packaging.python.org/guides/packaging-namespace-packages/
+    # 4. https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil
+    #
+    zip_safe=False,
+
     # List additional URLs that are relevant to your project as a dict.
     #
     # This field corresponds to the "Project-URL" metadata fields:
@@ -877,7 +923,6 @@ setup(
     # what's used to render the link text on PyPI.
     project_urls=DVSNIER_PROJECT_URLS,  # Optional
 )
-
 ```
 
 > 软件包`名称`和软件包`版本`信息, 一定要明确具体发布规则;
@@ -902,6 +947,10 @@ tox-quickstart
 
 ```bash
 tox
+
+python2 -m tox --result-json ./Temp/help/python2_tox_result_json.txt
+python3 -m tox --result-json ./Temp/help/python3_tox_result_json.txt
+
 ```
 
 #### 5.3.2 build
