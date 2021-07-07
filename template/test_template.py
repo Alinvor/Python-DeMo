@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 
+# import logging
 import unittest
+
+# from com.dvsnier.config.journal.common_config import config
 
 
 class Test_XXX(unittest.TestCase):
@@ -9,6 +12,8 @@ class Test_XXX(unittest.TestCase):
     def setUpClass(cls):
         print("...the set up...")
         print('')
+        # kwargs = {'output_dir_name': 'log', 'file_name': 'config', 'level': logging.DEBUG}
+        # cls._logging = config(kwargs)
 
     def setUp(self):
         super(Test_XXX, self).setUp()
