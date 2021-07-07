@@ -140,6 +140,6 @@ python3 -m tox --showconfig > ./Temp/help/python3_tox_show_config.txt
 ```bash
 tox --result-json
 
-python2 -m tox --result-json > ./Temp/help/python2_tox_result_json.txt
-python3 -m tox --result-json > ./Temp/help/python3_tox_result_json.txt
+python2 -m tox --result-json ./Temp/help/python2_tox_result_json.txt
+python3 -m tox --result-json ./Temp/help/python3_tox_result_json.txt
 ```
