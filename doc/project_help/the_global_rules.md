@@ -1,25 +1,39 @@
 # 规则
 
 - [一. 说明](#一-说明)
-- [二. 源码](#二-源码)
-- [三. 调试](#三-调试)
-  - [3.1. System 环境变量](#31-system-环境变量)
-  - [3.2. VSCode PYTHONPATH](#32-vscode-pythonpath)
-  - [3.3. inline import](#33-inline-import)
-- [四. 测试](#四-测试)
+- [二. 文档](#二-文档)
+  - [2.1. 规则文档](#21-规则文档)
+  - [2.2. 命令文档](#22-命令文档)
+- [三. 源码](#三-源码)
+- [四. 调试](#四-调试)
+  - [4.1. System 环境变量](#41-system-环境变量)
+  - [4.2. VSCode PYTHONPATH](#42-vscode-pythonpath)
+  - [4.3. inline import](#43-inline-import)
+- [五. 测试](#五-测试)
 
 ## 一. 说明
 
 本文档适用于全局性规则要义;
 
-## 二. 源码
+## 二. 文档
+
+### 2.1. 规则文档
+
+pass
+
+### 2.2. 命令文档
+
+1. [【Command】bash or ps1](../../Temp/bash/bash_or_ps1.md)
+2. [【Command】python script](../../Temp/bash/python_command.md)
+
+## 三. 源码
 
 1. 统一采用`com.dvsnier` 命名空间;
 2. 包结构，统一定义: `com.dvsnier.xxx`, 且`xxx` 包名称一定要和目录层次一一对应, 可以避免潜在无关紧要问题;
 
-## 三. 调试
+## 四. 调试
 
-### 3.1. System 环境变量
+### 4.1. System 环境变量
 
 目前我们规定如下可选全局变量:
 
@@ -42,7 +56,7 @@ export BASE_PROJECT_PREFIX="/Users/.../Python-DeMo"
 BASE_PROJECT_PREFIX="D:\\...\\Python-DeMo"
 ```
 
-### 3.2. VSCode PYTHONPATH
+### 4.2. VSCode PYTHONPATH
 
 VSCode 环境变量指定的默认配置选项为:
 
@@ -83,7 +97,7 @@ PYTHONPATH=/Users/.../Python-DeMo:/Users/.../Python-DeMo/tests:${PYTHONPATH}
 PYTHONPATH=D:\\WorkSpace\\...\\Python-DeMo;D:\\WorkSpace\\...\\Python-DeMo\\tests;%PYTHONPATH%
 ```
 
-### 3.3. inline import
+### 4.3. inline import
 
 **内联导入**:
 
@@ -99,6 +113,6 @@ pip2 install -e .
 pip3 install -e .
 ```
 
-## 四. 测试
+## 五. 测试
 
 1. 统一采用和源码空间统一的目录结构和命名空间形式;
