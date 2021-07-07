@@ -1,0 +1,8 @@
+build
+discover
+# setuptools
+tox
+twine
+# virtualenv
+unittest2
+# wheel

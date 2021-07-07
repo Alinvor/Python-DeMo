@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 
+# import logging
 import unittest
+
+# from com.dvsnier.config.journal.common_config import config
 
 
 class Test_XXX(unittest.TestCase):
@@ -8,23 +11,28 @@ class Test_XXX(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         print("...the set up...")
-        print
+        print('')
+        # kwargs = {'output_dir_name': 'log', 'file_name': 'config', 'level': logging.DEBUG}
+        # cls._logging = config(kwargs)
 
     def setUp(self):
-        return super(Test_XXX, self).setUp()
+        super(Test_XXX, self).setUp()
 
     def test_xxx(self):
-        print ("the test xxx(test_template.py) is succeed.")
+        print("the test xxx(test_template.py) is succeed.")
         pass
 
     def tearDown(self):
-        return super(Test_XXX, self).tearDown()
+        super(Test_XXX, self).tearDown()
 
     @classmethod
     def tearDownClass(cls):
-        print
+        print('')
         print("...the tear down...")
 
 
 if __name__ == '__main__':
-    unittest.main()
+    ''' the unittest suite '''
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test_XXX)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.main()
