@@ -311,6 +311,9 @@ tox-quickstart
 
 ```bash
 tox
+
+# the recommend
+tox --result-json ./Temp/tox/tox_result.json
 ```
 
 ### 4.5 twine version
