@@ -75,6 +75,9 @@ DVSNIER_AUTHOR = 'dvsnier'  # Optional
 DVSNIER_AUTHOR_EMAIL = 'dovsnier@qq.com'  # Optional
 DVSNIER_LICENSE = 'MIT'  # Optional
 DVSNIER_CLASSIFIERS = [  # Optional
+    #
+    # https://pypi.org/classifiers/
+    #
     # How mature is this project? Common values are
     #   3 - Alpha
     #   4 - Beta
@@ -107,7 +110,6 @@ DVSNIER_PACKAGES = find_packages(where='src')  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],

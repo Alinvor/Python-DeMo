@@ -7,6 +7,7 @@ https://github.com/Alinvor/Python-DeMo
 """
 
 # Always prefer setuptools over distutils
+# from setuptools import setup, find_packages, find_namespace_packages
 from setuptools import setup, find_packages
 import os
 import sys
@@ -26,9 +27,10 @@ def read_text(file_name):
     return content
 
 
-PROJECT_PREFIX = '/Users/dovsnier/Documents/Work_Space_Python/Python-DeMo/'
-project = PROJECT_PREFIX
-# print(project)
+project = os.getenv('BASE_PROJECT_PREFIX')
+if project is None:
+    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
+print(project)
 PROJECT_DIRECTORY = 'process'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
 README_ROOT_DIRECTORY = os.path.join(project, 'doc/description')
@@ -104,14 +106,10 @@ DVSNIER_PACKAGE_DIR = {'': 'src'}  # Optional
 # DVSNIER_PY_MODULES = ["xxx"]  # Required
 # DVSNIER_PACKAGES = find_packages(include=['xxx', 'xxx.*'])  # Required
 DVSNIER_PACKAGES = find_packages(where='src')  # Required
+# DVSNIER_NAMESPACE_PACKAGES = find_namespace_packages(include=['com.*'])  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-    # 'discover==0.4.0',
-    # 'build==0.4.0',
-    # 'pathlib2==2.3.5',
-    # 'toml==0.10.2',
-    # 'twine==1.15.0',
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
@@ -241,6 +239,11 @@ setup(
     #
     packages=DVSNIER_PACKAGES,  # Required
 
+    #
+    # Only for Python 3.x and above
+    #
+    # namespace_packages=DVSNIER_NAMESPACE_PACKAGES, # Optional
+
     # If your project contains any single-file Python modules that aren’t part of
     # a package, set py_modules to a list of the names of the modules (minus the .py
     # extension) in order to make setuptools aware of them.
@@ -291,6 +294,14 @@ setup(
     # For example, the following would provide a command called `dvsnier` which
     # executes the function `main` from this package when invoked:
     entry_points=DVSNIER_ENTRY_POINTS,  # Optional
+
+    #
+    # 1. https://www.python.org/dev/peps/pep-0328/
+    # 2. https://setuptools.readthedocs.io/en/latest/userguide/package_discovery.html
+    # 3. https://packaging.python.org/guides/packaging-namespace-packages/
+    # 4. https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil
+    #
+    zip_safe=False,
 
     # List additional URLs that are relevant to your project as a dict.
     #
