@@ -38,9 +38,9 @@ def execute(cmds, quiet=True):
             print('\r'),
         msg = '[%.5f] -> %s' % (end - start, ' | '.join(cmds))
         print(msg)
-    content = ''
+    content = None
     if sys.version_info.major > 2:
-        content = str(output.rstrip(bytes('\n', encoding='utf-8')))
+        content = str(output.rstrip(bytes('\n', encoding='utf-8')), encoding='utf-8')
     else:
         content = output.rstrip('\n')
     # logging.debug('the current run process pid(cwd: %s, ppid: %s, id: %s%d).' %
