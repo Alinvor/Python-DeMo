@@ -65,7 +65,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.config'  # Required
-DVSNIER_VERSION = '0.0.1.dev1'  # Required
+DVSNIER_VERSION = '0.0.2.dev1'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier config.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
@@ -107,7 +107,6 @@ DVSNIER_PACKAGES = find_packages(where='src')  # Required
 # DVSNIER_PYTHON_REQUIRES = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*'
 DVSNIER_PYTHON_REQUIRES = '>=2.7, <4'
 DVSNIER_INSTALL_REQUIRES = [  # Optional
-
 ]
 DVSNIER_EXTRAS_REQUIRE = {  # Optional
     'dev': ['check-manifest'],
