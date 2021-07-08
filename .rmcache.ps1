@@ -10,7 +10,7 @@ Get-ChildItem -Path . -include *.pyc -Recurse | Remove-Item
 
 ### THE DELETE DIRECTORY
 ## .tox/*
-Remove-Item -Path .\.tox -Recurse
+Remove-Item -Path .\.tox\* -Recurse
 ## ./build/*
 Remove-Item -Path .\build\* -Recurse
 ## ./src/com.dvsnier.*.egg-info
