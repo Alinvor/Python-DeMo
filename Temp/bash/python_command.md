@@ -10,10 +10,11 @@
 - [三. flake8](#三-flake8)
 - [四. tox](#四-tox)
   - [4.1. tox --version](#41-tox---version)
-  - [4.2. tox --help](#42-tox---help)
-  - [4.3. tox --help-ini](#43-tox---help-ini)
-  - [4.4. tox --showconfig](#44-tox---showconfig)
-  - [4.4. tox --result-json](#44-tox---result-json)
+  - [4.2. tox --verbose](#42-tox---verbose)
+  - [4.3. tox --help](#43-tox---help)
+  - [4.4. tox --help-ini](#44-tox---help-ini)
+  - [4.5. tox --showconfig](#45-tox---showconfig)
+  - [4.6. tox --result-json](#46-tox---result-json)
 
 > 平常工作和生活当中, 需要跨系统, 跨语言, 跨环境, 好多都需要笔录的方式记忆下来(已超出个体记忆能力), 好记性不如烂笔头, 故整理后续参考;
 
@@ -42,13 +43,21 @@ pip3 install -e .
 # pip list
 pip2 list > ./Temp/txt/python2_pip2_list.txt
 pip3 list > ./Temp/txt/python3_pip3_list.txt
-python2 -m pip2 list > ./Temp/txt/2021_python2_pip2_list.txt
-python3 -m pip3 list > ./Temp/txt/2021_python3_pip3_list.txt
+
+pip2 list > ./Temp/txt/2021_python2_pip2_list.txt
+pip3 list > ./Temp/txt/2021_python3_pip3_list.txt
+
+python2 -m pip list > ./Temp/txt/2021_python2_pip2_list.txt
+python3 -m pip list > ./Temp/txt/2021_python3_pip3_list.txt
 # pip freeze
 pip2 freeze > ./Temp/txt/python2_pip2_freeze.txt
 pip3 freeze > ./Temp/txt/python3_pip3_freeze.txt
-python2 -m pip2 freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
-python3 -m pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
+
+pip2 freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
+pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
+
+python2 -m pip freeze > ./Temp/txt/2021_python2_pip2_freeze.txt
+python3 -m pip freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
 ```
 
 ### 2.3. pip install
@@ -60,15 +69,15 @@ python3 -m pip3 freeze > ./Temp/txt/2021_python3_pip3_freeze.txt
 pip2 install -r ./requirements.txt
 pip3 install -r ./requirements.txt
 
-python2 -m pip2 install -r ./requirements.txt
-python3 -m pip3 install -r ./requirements.txt
+python2 -m pip install -r ./requirements.txt
+python3 -m pip install -r ./requirements.txt
 
 # the base chain component requirements
 pip2 install -r ./Temp/archives/material/requirements.txt
 pip3 install -r ./Temp/archives/material/requirements.txt
 
-python2 -m pip2 install -r ./Temp/archives/material/requirements.txt
-python3 -m pip3 install -r ./Temp/archives/material/requirements.txt
+python2 -m pip install -r ./Temp/archives/material/requirements.txt
+python3 -m pip install -r ./Temp/archives/material/requirements.txt
 ```
 
 #### 2.3.2. pip install xxx
@@ -95,20 +104,26 @@ flake8 --help > ./Temp/help/python3_flake8_help.txt
 
 ## 四. tox
 
-```bash
-tox --verbose
-
-python2 -m tox --verbose > ./Temp/help/python2_tox_verbose.txt
-python3 -m tox --verbose > ./Temp/help/python3_tox_verbose.txt
-```
-
 ### 4.1. tox --version
 
 ```bash
 tox --version
 ```
 
-### 4.2. tox --help
+### 4.2. tox --verbose
+
+```bash
+tox --verbose
+tox --verbose --parallel all
+tox --verbose --parallel auto
+tox --verbose --parallel 4  // 4 cpu core
+tox --verbose --parallel 8  // 8 cpu core
+
+python2 -m tox --verbose > ./Temp/help/python2_tox_verbose.txt
+python3 -m tox --verbose > ./Temp/help/python3_tox_verbose.txt
+```
+
+### 4.3. tox --help
 
 ```bash
 tox --help
@@ -117,7 +132,7 @@ python2 -m tox --help > ./Temp/help/python2_tox_help.txt
 python3 -m tox --help > ./Temp/help/python3_tox_help.txt
 ```
 
-### 4.3. tox --help-ini
+### 4.4. tox --help-ini
 
 ```bash
 tox --help-ini
@@ -126,7 +141,7 @@ python2 -m tox --help-ini > ./Temp/help/python2_tox_help_ini.txt
 python3 -m tox --help-ini > ./Temp/help/python3_tox_help_ini.txt
 ```
 
-### 4.4. tox --showconfig
+### 4.5. tox --showconfig
 
 ```bash
 tox --showconfig
@@ -135,7 +150,7 @@ python2 -m tox --showconfig > ./Temp/help/python2_tox_show_config.txt
 python3 -m tox --showconfig > ./Temp/help/python3_tox_show_config.txt
 ```
 
-### 4.4. tox --result-json
+### 4.6. tox --result-json
 
 ```bash
 tox --result-json

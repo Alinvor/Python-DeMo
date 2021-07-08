@@ -948,6 +948,12 @@ tox-quickstart
 ```bash
 tox
 
+tox --verbose
+tox --verbose --parallel all
+tox --verbose --parallel auto
+tox --verbose --parallel 4  // 4 cpu core
+tox --verbose --parallel 8  // 8 cpu core
+
 python2 -m tox --result-json ./Temp/help/python2_tox_result_json.txt
 python3 -m tox --result-json ./Temp/help/python3_tox_result_json.txt
 
