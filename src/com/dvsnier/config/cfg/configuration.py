@@ -84,7 +84,7 @@ class Configuration(IConf, object):
                     key = line[:split_at].strip()
                     suspicious_value = line[split_at + 1:].strip()
                     # https://docs.python.org/zh-cn/2.7/library/re.html?
-                    logging.debug('the key is {} and value is {}'.format(key, suspicious_value))
+                    # logging.debug('the key is {} and value is {}'.format(key, suspicious_value))
                     if suspicious_value:
                         match_with_immature_list = self.__pattern_with_list.search(suspicious_value)
                         match_with_immature_digital = self.__pattern_with_number_element.search(suspicious_value)
