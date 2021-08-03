@@ -80,20 +80,19 @@
     ],
     "python.linting.lintOnSave": true,
     "python.linting.pylintEnabled": false,
-    // https://github.com/microsoft/vscode-python/discussions/15997#discussioncomment-636389
-    // "python.testing.unittestArgs": [
-    //     "-v",
-    //     "-s",
-    //     "./tests",
-    //     "-p",
-    //     "test_*.py"
-    // ],
     // "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.cwd": "${workspaceFolder}",
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": false,
-    "python.testing.promptToConfigure": false,
     "python.testing.unittestEnabled": true,
+    // https://github.com/microsoft/vscode-python/discussions/15997#discussioncomment-636389
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
+    ],
     // "workbench.settings.openDefaultSettings": true,
     // "workbench.settings.editor": "ui",
     // "workbench.settings.openDefaultKeybindings": true,
