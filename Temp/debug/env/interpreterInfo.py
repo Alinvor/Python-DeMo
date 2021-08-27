@@ -7,12 +7,16 @@ import os
 import sys
 
 obj = {}
-obj["BASE_PROJECT_PREFIX"] = os.getenv('BASE_PROJECT_PREFIX', None)
-if obj["BASE_PROJECT_PREFIX"] is None:
-    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
 obj["is64Bit"] = sys.maxsize > 2**32
 obj["PWD"] = os.environ.get('PWD')
+obj["PYTHON_PROJECT_PREFIX"] = os.getenv('PYTHON_PROJECT_PREFIX', None)
+obj["PYTHON_PROJECT_NAME"] = os.getenv('PYTHON_PROJECT_NAME', None)
+obj["PYTHON_PROJECT_PATH"] = os.getenv('PYTHON_PROJECT_PATH', None)
+if obj["PYTHON_PROJECT_PATH"] is None:
+    raise KeyError('the please configure PYTHON_PROJECT_PATH environment variable, otherwise it cannot run')
 obj["PYTHONPATH"] = os.environ.get('PYTHONPATH')
+obj["PYTHONTRACEMALLOC"] = os.getenv('PYTHONTRACEMALLOC', None)
+obj["PYTHONUTF8"] = os.getenv('PYTHONUTF8', None)
 obj["sysModules"] = {}
 for (k, v) in sys.modules.items():
     (obj["sysModules"])[str(k)] = str(v)
