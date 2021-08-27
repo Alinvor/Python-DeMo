@@ -37,8 +37,12 @@ pass
 
 目前我们规定如下可选全局变量:
 
+- `PYTHON_PROJECT_PREFIX`: 【必选项】, Python 工作区目录前缀;
+- `PYTHON_PROJECT_NAME`: 【必选项】, Python 项目名称;
+- `PYTHON_PROJECT_PATH`: 【必选项】, Python 项目路径;
 - `PYTHONPATH`: 【可选项】, Python 环境变量;
-- `BASE_PROJECT_PREFIX`: 【必选项】, 当前工作区目录前缀;
+- `PYTHONTRACEMALLOC`: 【可选项】, Python 追踪内存分配;
+- `PYTHONUTF8`: 【可选项】, Python 是否开启UTF-8 编码;
 
 > 1. `工作区`: 当前程序被系统`调用并执行`的区间点;
 > 2. `运行区`: 当前程序被系统`执行`的区间点;
@@ -49,11 +53,11 @@ pass
 ```bash
 # darwin Python
 # export PYTHONPATH=.
-export BASE_PROJECT_PREFIX="/Users/.../Python-DeMo"
+export PYTHON_PROJECT_PATH="/Users/.../Python-DeMo"
 
 # win Python
 # PYTHONPATH=.
-BASE_PROJECT_PREFIX="D:\\...\\Python-DeMo"
+PYTHON_PROJECT_PATH="D:\\...\\Python-DeMo"
 ```
 
 ### 4.2. VSCode PYTHONPATH
@@ -69,9 +73,9 @@ VSCode 环境变量指定的默认配置选项为:
 **注意**:
 
 1. 在`${workspaceFolder}/.env` 文件中所指定 `PYTHONPATH` 请使用`绝对路径`, 因为使用相对路径目前的版本不受支持;
-2. 目前无需在 VSCode 中使用`.` 操作符指定当前目录, 从而被重复加入到VSCode `PYTHONPATH` 中, VSCode 默认具有当前功能(隐含默认将当前执行目录加入`PYTHONPATH` 环境变量);
+2. 目前无需在 VSCode 中使用`.` 操作符指定当前目录, 从而被重复加入到 VSCode `PYTHONPATH` 中, VSCode 默认具有当前功能(隐含默认将当前执行目录加入`PYTHONPATH` 环境变量);
 3. 加载环境变量顺序需要注意, VSCode 默认加载位置为: `["VSCode DEFAULT RULES(stdlib)", "VSCode DEFAULT INLINE RULUES WITH PYTHON PATH . AND SRC", "VSCode PYTHONPATH WITH ENV", "SYSTEM DEFAULT PYTHON PATH LIST", "virtual environment list"]`
-4. `.` 操作符在VSCode `PYTHONPATH` 中单独使用是起作用的, 联合使用不起作用, 是 VSCode 的一个 Bug, 同时不支持 `${workspaceFolder}` 变量替换;
+4. `.` 操作符在 VSCode `PYTHONPATH` 中单独使用是起作用的, 联合使用不起作用, 是 VSCode 的一个 Bug, 同时不支持 `${workspaceFolder}` 变量替换;
 
 具体 `PYTHONPATH` 添加规则如下:
 
