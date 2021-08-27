@@ -364,7 +364,7 @@ Python 软件包开发工程结构，如下所示:
     | --- .editorconfig
     | --- .env
     | --- .gitignore
-    | --- .rmcache.bash
+    | --- .rmcache.sh
     | --- .rmcache.ps1
     | --- LICENSE.txt
     | --- MANIFEST.in
@@ -1047,7 +1047,7 @@ twine upload dist/*
 
 ### 6.5 日志与清理
 
-1. [【Clean: darwin】](./.rmcache.bash)
+1. [【Clean: darwin】](./.rmcache.sh)
 2. [【Clean: win】](./.rmcache.ps1)
 
 ## 七. 参考
