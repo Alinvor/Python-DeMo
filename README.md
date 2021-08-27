@@ -164,7 +164,7 @@ python3 -m virtualenv -p C:\Python\Python38\python3.exe venv > venv.log
 
 #### 3.1.1 activate for mac
 
-在控制台中输入如下命令，使得Mac 环境下的 `virtualenv` 生效:
+在控制台中输入如下命令，使得 Mac 环境下的 `virtualenv` 生效:
 
 ```bash
 # python2
@@ -177,7 +177,7 @@ source ./venv/bin/activate
 
 #### 3.1.2 activate for windows
 
-在控制台中输入如下命令，使得Windows 环境下的 `virtualenv` 生效:
+在控制台中输入如下命令，使得 Windows 环境下的 `virtualenv` 生效:
 
 ```bash
 # python2
@@ -364,7 +364,7 @@ Python 软件包开发工程结构，如下所示:
     | --- .editorconfig
     | --- .env
     | --- .gitignore
-    | --- .rmcache.bash
+    | --- .rmcache.sh
     | --- .rmcache.ps1
     | --- LICENSE.txt
     | --- MANIFEST.in
@@ -391,7 +391,6 @@ Python 软件包开发工程结构，如下所示:
 10. unittest2
 11. virtualenv
 12. wheel
-
 
 如若没有，请使用`pip` 命令安装如下软件包:
 
@@ -480,7 +479,7 @@ include requirements.txt
 
 #### 5.2.3 tox.ini
 
-再然后配置 `tox` 脚本自动化测试, 指定Python 虚拟环境版本, 配置信息如下:
+再然后配置 `tox` 脚本自动化测试, 指定 Python 虚拟环境版本, 配置信息如下:
 
 ```bash
 # tox (https://tox.readthedocs.io/) is a tool for running tests
@@ -638,9 +637,9 @@ def read_text(file_name):
     return content
 
 
-project = os.getenv('BASE_PROJECT_PREFIX')
+project = os.getenv('PYTHON_PROJECT_PATH')
 if project is None:
-    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
+    raise KeyError('the please configure PYTHON_PROJECT_PATH environment variable, otherwise it cannot run')
 print(project)
 PROJECT_DIRECTORY = 'xxx'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
@@ -987,7 +986,7 @@ python3 -m build --wheel
 #### 5.3.1 注册账号
 
 1. 账户注册地址: https://pypi.org/account/register/
-2. 创建一个[PyPI API令牌](https://pypi.org/help/#apitoken), 以便能够安全地上传您的项目;
+2. 创建一个[PyPI API 令牌](https://pypi.org/help/#apitoken), 以便能够安全地上传您的项目;
 3. 为了避免每次上载时都必须复制和粘贴令牌，可以创建一个`$HOME/.pypirc` 文件, 参考如下:
 
 ```bash
@@ -1048,7 +1047,7 @@ twine upload dist/*
 
 ### 6.5 日志与清理
 
-1. [【Clean: darwin】](./.rmcache.bash)
+1. [【Clean: darwin】](./.rmcache.sh)
 2. [【Clean: win】](./.rmcache.ps1)
 
 ## 七. 参考
