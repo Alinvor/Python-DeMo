@@ -7,10 +7,10 @@ from com.dvsnier.config.iconf import IConf
 
 class Conf(IConf, object):
     'the config or property class'
-    _config = None
 
     def __init__(self):
         super(Conf, self).__init__()
+        # protected property
         self._config = configparser.ConfigParser()
 
     def write(self, file):

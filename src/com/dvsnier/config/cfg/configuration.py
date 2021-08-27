@@ -59,10 +59,11 @@ class Configuration(IConf, object):
     __pattern_with_boolean_element = re.compile(r'\btrue|True|false|False\b')
     __pattern_with_element = re.compile(r'((?<=\')[^,\b]+?(?=\'))|((?<=\")[^,\b]+?(?=\"))')
     __pattern_with_element_strip = re.compile(r'(?<=\').+?(?=\')|(?<=\").+?(?=\")')
-    _config = {}
 
     def __init__(self):
         super(Configuration, self).__init__()
+        # private property
+        self.__config = {}
 
     def obtain_config(self, config_file):
         """the read xxx.cfg"""
@@ -99,7 +100,7 @@ class Configuration(IConf, object):
                             self.__resolve_with_str(key, suspicious_value)
                     else:
                         self.__resolve_with_str(key, suspicious_value)
-        return self._config
+        return self.__config
 
     def __resolve_with_list(self, match_with_immature_list, key, suspicious_value):
         'the resolve list data structure'
@@ -111,7 +112,7 @@ class Configuration(IConf, object):
                 the_default_element_list_with_parsed = list()
                 for element_value in iterator_object_with_callback_type_is_match_object:
                     the_default_element_list_with_parsed.append(element_value.group())
-                self._config[key] = the_default_element_list_with_parsed
+                self.__config[key] = the_default_element_list_with_parsed
             else:
                 # ignore invaild split value
                 logging.warning(
@@ -128,7 +129,7 @@ class Configuration(IConf, object):
         element_value = match_with_immature_digital.group()
         try:
             if element_value and suspicious_value == element_value and isinstance(int(element_value), Number):
-                self._config[key] = int(element_value)
+                self.__config[key] = int(element_value)
             else:
                 self.__resolve_with_str(key, suspicious_value)
         except ValueError:
@@ -140,9 +141,9 @@ class Configuration(IConf, object):
         try:
             if element_value and suspicious_value == element_value:
                 if 'true' == element_value or 'True' == element_value:
-                    self._config[key] = bool(1)
+                    self.__config[key] = bool(1)
                 else:
-                    self._config[key] = bool(0)
+                    self.__config[key] = bool(0)
             else:
                 self.__resolve_with_str(key, suspicious_value)
         except ValueError:
@@ -152,6 +153,6 @@ class Configuration(IConf, object):
         'the resolve str data structure'
         match_with_immature_str = self.__pattern_with_element_strip.search(suspicious_value)
         if match_with_immature_str:
-            self._config[key] = match_with_immature_str.group()
+            self.__config[key] = match_with_immature_str.group()
         else:
-            self._config[key] = suspicious_value
+            self.__config[key] = suspicious_value
