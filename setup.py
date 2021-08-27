@@ -27,9 +27,9 @@ def read_text(file_name):
     return content
 
 
-project = os.getenv('BASE_PROJECT_PREFIX')
+project = os.getenv('PYTHON_PROJECT_PATH')
 if project is None:
-    raise KeyError('the please configure BASE_PROJECT_PREFIX environment variable, otherwise it cannot run')
+    raise KeyError('the please configure PYTHON_PROJECT_PATH environment variable, otherwise it cannot run')
 print(project)
 PROJECT_DIRECTORY = 'config'  # project directory
 PROJECT_README_FILE = 'README.md'  # project readme file
@@ -65,7 +65,7 @@ PROJECT_DESCRIPTION = os.path.join(README_PROJECT_DIRECTORY, PROJECT_README_FILE
 # |  21   |         DVSNIER_PROJECT_URLS          |    dict     |       | 项目 URL               |      |
 # |  22   |                                       |             |       |                       |      |
 DVSNIER_NAME = 'com.dvsnier.config'  # Required
-DVSNIER_VERSION = '0.0.2.dev1'  # Required
+DVSNIER_VERSION = '0.0.2.dev2'  # Required
 DVSNIER_DESCRIPTOIN = 'this is dvsnier config.'  # Optional
 # Get the long description from the README file
 DVSNIER_LONG_DESCRIPTOIN = read_text(str(PROJECT_DESCRIPTION))  # Optional
