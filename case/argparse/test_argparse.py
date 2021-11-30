@@ -3,8 +3,11 @@
 import argparse
 
 #
-#  python -m test_argparse.py --help
-parser = argparse.ArgumentParser(description='Command-line example.')
+# the command line srcipt:
+#
+#   python test_argparse.py --help
+#
+parser = argparse.ArgumentParser(description='这是一个基本描述信息。')
 
 # Add optional switches
 parser.add_argument('-v',
@@ -31,4 +34,4 @@ parser.add_argument(nargs='*',
                     help='input filenames (default is stdin)')
 
 args = parser.parse_args()
-print args.__dict__
+print(args.__dict__)
