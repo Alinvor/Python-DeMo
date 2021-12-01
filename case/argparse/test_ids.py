@@ -36,7 +36,6 @@ def test_b(b):
 
 if __name__ == "__main__":
     ''' the main point '''
-    # function_argparse()
     retcode = pytest.main(args=['-v', '-s', os.path.abspath(__file__)])
     # retcode = pytest.main(args=['--fixtures', os.path.abspath(__file__)])
     # retcode = pytest.main(args=['--collect-only', os.path.abspath(__file__)])

@@ -8,6 +8,7 @@ import pytest
 
 @pytest.fixture(scope="session")
 def _temp_dir():
+    ''' _temp_dir '''
     temp = tempfile.mkdtemp(prefix='argprase-')
     print('\n')
     print('the current temp dir is {}'.format(temp))
@@ -17,11 +18,20 @@ def _temp_dir():
 
 @pytest.fixture(scope="session")
 def _temp_file():
+    ''' _temp_file '''
     fd, temp = tempfile.mkstemp(prefix='argprase-', suffix='.tmp')
     # print('\n')
     print('the current temp path is {}'.format(temp))
     yield temp
     os.remove(temp)
+
+
+@pytest.fixture()
+def cleandir():
+    ''' cleandir '''
+    newpath = tempfile.mkdtemp()
+    os.chdir(newpath)
+    print('\nthe current temp dir is {}'.format(newpath))
 
 
 # @pytest.mark.xfail(raises=ZeroDivisionError)

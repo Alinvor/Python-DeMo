@@ -42,7 +42,6 @@ def test_2(funarg, modarg):
 
 if __name__ == "__main__":
     ''' the main point '''
-    # function_argparse()
     retcode = pytest.main(args=['-v', '-s', os.path.abspath(__file__)])
     #
     # test function scope
