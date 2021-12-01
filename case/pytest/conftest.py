@@ -24,3 +24,19 @@ def _temp_file():
     print('the current temp path is {}'.format(temp))
     yield temp
     os.remove(temp)
+
+
+@pytest.fixture()
+def cleandir():
+    ''' cleandir '''
+    newpath = tempfile.mkdtemp()
+    os.chdir(newpath)
+    print('\nthe current temp dir is {}'.format(newpath))
+
+
+# @pytest.mark.xfail(raises=ZeroDivisionError)
+# def test_zero_division():
+#     ''' test zero division'''
+#     1/0
+# with pytest.raises(ZeroDivisionError):
+#     1 / 0
