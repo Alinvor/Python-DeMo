@@ -1,25 +1,6 @@
 # -*- coding:utf-8 -*-
 
 import argparse
-import os
-import pytest
-
-
-def test_cmd_1(execute):
-    ''' the test cmd '''
-    print('\ntest_cmd_1: {}'.format(execute))
-    print('the test_cmd_1 ended.')
-    # pytest -v -s ./case/argparse/test_argparse.py
-    # pytest -v -s test_argparse.py
-    pass
-
-
-@pytest.fixture(scope='session', params=['a', 'b', pytest.param('c', marks=pytest.mark.skip)])
-def execute(_temp_dir, _temp_file, request):
-    ''' the execute '''
-    value = request.param
-    print('\nexecute: {}'.format(value))
-    return value
 
 
 def function_argparse():
@@ -54,8 +35,4 @@ def function_argparse():
 
 if __name__ == "__main__":
     ''' the main point '''
-    # function_argparse()
-    retcode = pytest.main(args=['-v', '-s', os.path.abspath(__file__)])
-    # retcode = pytest.main(args=['--fixtures', os.path.abspath(__file__)])
-    # retcode = pytest.main(args=['--collect-only', os.path.abspath(__file__)])
-    print(retcode)
+    function_argparse()

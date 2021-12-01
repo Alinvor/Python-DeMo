@@ -4,7 +4,7 @@ import os
 import pytest
 
 
-@pytest.fixture(scope="module", params=["mod1", "mod2"])
+@pytest.fixture(scope="module", params=["mod1", "mod2", pytest.param('mod3', marks=pytest.mark.skip)])
 def modarg(request):
     ''' modarg '''
     param = request.param

@@ -1,29 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import argparse
-import os
-import subprocess
-import pytest
 import sys
-
-
-def test_cmd_1(execute):
-    ''' the test cmd '''
-    print('the test_cmd_1 ended.')
-    # pytest -v -s ./case/argparse/test_argparse_1.py
-    # pytest -v -s test_argparse_1.py
-    pass
-
-
-@pytest.fixture()
-def execute(_temp_dir, _temp_file):
-    try:
-        args = [sys.executable, __file__, '1']
-        # args = [sys.executable, __file__, '-h']
-        subprocess.check_output(args=args, )
-        subprocess.check_call(args=args, )
-    finally:
-        print('the execute...')
 
 
 def function_argparse():
@@ -62,4 +40,3 @@ def function_argparse():
 if __name__ == "__main__":
     ''' the main point '''
     function_argparse()
-    # pytest.main(args=['-v', '-s', os.path.abspath(__file__)])
