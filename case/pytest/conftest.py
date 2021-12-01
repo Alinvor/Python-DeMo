@@ -40,3 +40,27 @@ def cleandir():
 #     1/0
 # with pytest.raises(ZeroDivisionError):
 #     1 / 0
+
+
+@pytest.fixture
+def username():
+    ''' username '''
+    return 'username'
+
+
+@pytest.fixture
+def other_username(username):
+    ''' other_username '''
+    return 'other-' + username
+
+
+@pytest.fixture(params=['one', 'two', 'three'])
+def parametrized_username(request):
+    ''' parametrized_username '''
+    return request.param
+
+
+@pytest.fixture
+def non_parametrized_username(request):
+    ''' non_parametrized_username '''
+    return 'username'
