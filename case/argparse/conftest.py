@@ -1,9 +1,15 @@
 # -*- coding:utf-8 -*-
 
+import logging
 import os
 import shutil
 import tempfile
+
+from com.dvsnier.config.journal.common_config import config
 import pytest
+
+kwargs = {'output_dir_name': 'pytest', 'file_name': 'log', 'level': logging.DEBUG}
+config(kwargs)
 
 
 @pytest.fixture(scope="session")
