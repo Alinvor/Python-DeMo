@@ -1,15 +1,47 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
+    // 使用 IntelliSense 了解相关属性。
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        // {
+        //     "args": [
+        //         "${file}",
+        //         // "1",
+        //         // "-l",
+        //         // "${workspaceFolder}/build/asc.txt",
+        //         // "-h",
+        //     ],
+        //     "console": "integratedTerminal",
+        //     "env": {
+        //         // "PYTEST_ADDOPTS": "--no-cov"
+        //     },
+        //     "module": "pytest",
+        //     "name": "Python: Pytest",
+        //     // "program": "${file}",
+        //     "request": "launch",
+        //     "type": "python",
+        // },
         {
-            "name": "Python: 当前文件",
-            "type": "python",
-            "request": "launch",
+            // "args": [
+            //     "-v",
+            //     "-s",
+            //     // "--disable-pytest-warnings",
+            // ],
+            "console": "integratedTerminal",
+            // "debugOptions": [
+            //     "WaitOnAbnormalExit",
+            //     "WaitOnNormalExit",
+            //     "RedirectOutput"
+            // ],
+            "env": {
+                // "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "envFile": "${workspaceFolder}/.env/dev.env",
+            "name": "Python: The Current File",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "request": "launch",
+            "type": "python",
         }
     ]
 }

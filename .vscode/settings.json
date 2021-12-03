@@ -50,7 +50,10 @@
     // "python.defaultInterpreterPath": "${workspaceFolder}/venv2/bin/python",
     // "python.defaultInterpreterPath": "venv2/bin/python",
     // "python.diagnostics.sourceMapsEnabled": true,
-    "python.envFile": "${workspaceFolder}/.env",
+    "python.envFile": "${workspaceFolder}/.env/dev.env",
+    // "python.envFile": "${workspaceFolder}/.env/test.env",
+    // "python.envFile": "${workspaceFolder}/.env/pred.env",
+    // "python.envFile": "${workspaceFolder}/.env/prod.env",
     // "python.pythonPath": "${workspaceFolder}/venv2/bin/python",
     // "python.pythonPath": "venv2/bin/python",
     // "python.pythonPath": "venv2\\Scripts\\python.exe",
@@ -83,16 +86,21 @@
     // "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.cwd": "${workspaceFolder}",
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": true,
-    // https://github.com/microsoft/vscode-python/discussions/15997#discussioncomment-636389
-    "python.testing.unittestArgs": [
-        "-v",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        // "--disable-pytest-warnings",
         "-s",
-        ".",
-        "-p",
-        "test_*.py"
+        "-v",
     ],
+    "python.testing.unittestEnabled": false,
+    // https://github.com/microsoft/vscode-python/discussions/15997#discussioncomment-636389
+    // "python.testing.unittestArgs": [
+    //     "-v",
+    //     "-s",
+    //     ".",
+    //     "-p",
+    //     "test_*.py"
+    // ],
     // "workbench.settings.openDefaultSettings": true,
     // "workbench.settings.editor": "ui",
     // "workbench.settings.openDefaultKeybindings": true,
