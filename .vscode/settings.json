@@ -50,7 +50,7 @@
     // "python.defaultInterpreterPath": "${workspaceFolder}/venv2/bin/python",
     // "python.defaultInterpreterPath": "venv2/bin/python",
     // "python.diagnostics.sourceMapsEnabled": true,
-    "python.envFile": "${workspaceFolder}/.env/dev.env",
+    "python.envFile": "${workspaceFolder}/asterisk.env/dev.env",
     // "python.envFile": "${workspaceFolder}/.env/test.env",
     // "python.envFile": "${workspaceFolder}/.env/pred.env",
     // "python.envFile": "${workspaceFolder}/.env/prod.env",

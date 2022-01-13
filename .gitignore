@@ -84,10 +84,11 @@ celerybeat-schedule
 # Environments
 .env
 .env/
-# dev.env
-# test.env
-# prep.env
-# prod.env
+asterisk.env/
+dev.env
+test.env
+prep.env
+prod.env
 *.env
 .venv
 env/
