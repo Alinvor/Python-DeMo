@@ -9,11 +9,11 @@ import sys
 obj = {}
 obj["is64Bit"] = sys.maxsize > 2**32
 obj["PWD"] = os.environ.get('PWD')
-obj["PYTHON_PROJECT_PREFIX"] = os.getenv('PYTHON_PROJECT_PREFIX', None)
-obj["PYTHON_PROJECT_NAME"] = os.getenv('PYTHON_PROJECT_NAME', None)
-obj["PYTHON_PROJECT_PATH"] = os.getenv('PYTHON_PROJECT_PATH', None)
-if obj["PYTHON_PROJECT_PATH"] is None:
-    raise KeyError('the please configure PYTHON_PROJECT_PATH environment variable, otherwise it cannot run')
+# obj["PYTHON_PROJECT_PREFIX"] = os.getenv('PYTHON_PROJECT_PREFIX', None)
+# obj["PYTHON_PROJECT_NAME"] = os.getenv('PYTHON_PROJECT_NAME', None)
+# obj["PYTHON_PROJECT_PATH"] = os.getenv('PYTHON_PROJECT_PATH', None)
+# if obj["PYTHON_PROJECT_PATH"] is None:
+#    raise KeyError('the please configure PYTHON_PROJECT_PATH environment variable, otherwise it cannot run')
 obj["PYTHONPATH"] = os.environ.get('PYTHONPATH')
 obj["PYTHONTRACEMALLOC"] = os.getenv('PYTHONTRACEMALLOC', None)
 obj["PYTHONUTF8"] = os.getenv('PYTHONUTF8', None)
