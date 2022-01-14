@@ -13,13 +13,13 @@
             "label": "1. Python Clean",
             "type": "shell",
             "linux": {
-                "command": "${workspaceFolder}/.rmcache.sh"
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.sh"
             },
             "osx": {
-                "command": "${workspaceFolder}/.rmcache.sh"
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.sh"
             },
             "windows": {
-                "command": "${workspaceFolder}/.rmcache.ps1"
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.ps1"
             }
         },
         {
