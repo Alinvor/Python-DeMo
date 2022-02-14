@@ -37,7 +37,7 @@
             "env": {
                 // "PYTEST_ADDOPTS": "--no-cov"
             },
-            "envFile": "${workspaceFolder}/.env/dev.env",
+            "envFile": "${workspaceFolder}/asterisk.env/dev.env",
             "name": "Python: The Current File",
             "program": "${file}",
             "request": "launch",
