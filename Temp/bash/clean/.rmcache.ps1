@@ -20,5 +20,7 @@ Remove-Item -Path .\src\com.dvsnier.*.egg-info -Recurse
 Remove-Item -Path .\dist\* -Recurse
 ## ./out/log/*
 Remove-Item -Path .\out\log\* -Recurse
+## .pytest_cache
+Remove-Item -Path .\.pytest_cache\* -Recurse
 ## __pycache__
 Get-ChildItem -Path . -include __pycache__ -Recurse | Remove-Item
