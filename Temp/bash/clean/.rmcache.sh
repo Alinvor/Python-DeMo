@@ -16,5 +16,7 @@ find ./src -path "*com.dvsnier*" -delete
 find ./dist -path "*" ! -name "dist" -delete
 ## ./out/log/*
 find ./out/log -path "*" ! -name "log" -delete
+## .pytest_cache
+find ./.pytest_cache -path "*" ! -name ".pytest_cache" -delete
 ## __pycache__
 find . -type d -name __pycache__ -exec rm -r {} +

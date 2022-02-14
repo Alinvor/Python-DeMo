@@ -1,0 +1,56 @@
+{
+    // See article list links:
+    //
+    // 1. https://go.microsoft.com/fwlink/?LinkId=733558
+    // 2. https://vscode-docs.readthedocs.io/en/stable/editor/tasks/
+    // 3. https://code.visualstudio.com/docs/editor/variables-reference/
+    // 4. https://docs.brew.sh/Homebrew-and-Python/
+    //
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Python Clean",
+            "type": "shell",
+            "linux": {
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.sh"
+            },
+            "osx": {
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.sh"
+            },
+            "windows": {
+                "command": "${workspaceFolder}/Temp/bash/clean/.rmcache.ps1"
+            }
+        },
+        {
+            "label": "2. Python@2 or Python@3 Env",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python -c 'import sys;import json;print(json.dumps(sys.path, indent=4))'"
+            },
+            "windows": {
+                "command": "echo ${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Z. Test",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                // "command": "echo ${config:editor.fontSize}"
+                // "command": "echo ${config:python.envFile}"
+                // "command": "echo ${env:PYTHONPATH}"
+                // "command": "echo ${env:PATH}"
+                "command": "echo ${workspaceFolder}"
+            },
+            "windows": {
+                "command": "echo ${workspaceFolder}"
+            }
+        }
+    ]
+}
