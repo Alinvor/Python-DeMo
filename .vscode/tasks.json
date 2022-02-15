@@ -36,6 +36,97 @@
             }
         },
         {
+            "label": "3. Python Tox Config",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python -m tox --showconfig"
+            },
+            "windows": {
+                "command": "python -m tox --showconfig"
+            }
+        },
+        {
+            "label": "4. Python@2 Tox",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python2 -m tox --result-json ./Temp/help/python2_tox_result_json.txt"
+            },
+            "windows": {
+                "command": "python2 -m tox --result-json ./Temp/help/python2_tox_result_json.txt"
+            }
+        },
+        {
+            "label": "5. Python@3 Tox",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python3 -m tox --result-json ./Temp/help/python3_tox_result_json.txt"
+            },
+            "windows": {
+                "command": "python3 -m tox --result-json ./Temp/help/python3_tox_result_json.txt"
+            }
+        },
+        {
+            "label": "6. Python2 Build",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python2 -m build"
+            },
+            "windows": {
+                "command": "python2 -m build"
+            }
+        },
+        {
+            "label": "7. Python3 Build",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "python3 -m build"
+            },
+            "windows": {
+                "command": "python3 -m build"
+            }
+        },
+        {
+            "label": "8. Python Twine Check",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "twine check dist/*"
+            },
+            "windows": {
+                "command": "twine check dist/*"
+            }
+        },
+        {
+            "label": "9. Python Twine Upload",
+            "type": "shell",
+            "linux": {
+                "command": "echo ${workspaceFolder}"
+            },
+            "osx": {
+                "command": "twine upload dist/*"
+            },
+            "windows": {
+                "command": "twine upload dist/*"
+            }
+        },
+        {
             "label": "Z. Test",
             "type": "shell",
             "linux": {
